@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOMGAgameClass", "LOMGAgameClass\LOMGAgameClass.csproj", "{27066CB1-B13F-4654-9796-DF10BE3F7B25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOMGAgameClass", "LOMGAgameClass\LOMGAgameClass.csproj", "{27066CB1-B13F-4654-9796-DF10BE3F7B25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOMGAgameClassTTTcheck", "LOMGAgameClassTTTcheck\LOMGAgameClassTTTcheck.csproj", "{3EF661EB-0450-4B5E-9216-5FB1E2CECC6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOMGAgameClassTTTcheck", "LOMGAgameClassTTTcheck\LOMGAgameClassTTTcheck.csproj", "{3EF661EB-0450-4B5E-9216-5FB1E2CECC6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOMGAserver", "LOMGAserver\LOMGAserver.csproj", "{50E2CE16-45E5-492E-882E-89A2AC1F90DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3EF661EB-0450-4B5E-9216-5FB1E2CECC6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EF661EB-0450-4B5E-9216-5FB1E2CECC6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EF661EB-0450-4B5E-9216-5FB1E2CECC6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50E2CE16-45E5-492E-882E-89A2AC1F90DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50E2CE16-45E5-492E-882E-89A2AC1F90DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50E2CE16-45E5-492E-882E-89A2AC1F90DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50E2CE16-45E5-492E-882E-89A2AC1F90DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
