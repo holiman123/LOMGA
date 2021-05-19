@@ -3,6 +3,8 @@ using LOMGAgameClass;
 using System.Net.Sockets;
 using System.Threading;
 using System.Collections.Generic;
+using System.Text;
+using System.Text.Json;
 
 namespace LOMGAserver
 {
@@ -43,17 +45,33 @@ namespace LOMGAserver
                 Console.WriteLine("new game starting");
                 GameClassTTT game = new GameClassTTT();
                 game.hostStream = firstStream;
+                game.gameIndex = gamesList.Count;
                 gamesList.Add(game);
-
-
             }
 
             if (Convert.ToString(data) == "list")
             {
                 Console.WriteLine("list request");
-                //TODO: send list of thread/servers/games/etc.
-                //TODO: read choosen thread/server/games/etc.
+
+                // send list of games
+                byte[] dataBuffer; 
+                dataBuffer = Encoding.Default.GetBytes(JsonSerializer.Serialize(gamesList));
+                firstStream.Write(dataBuffer, 0, data.Length);
+
+                // read choosen game
+                dataBuffer = new byte[512];
+                firstStream.Read(dataBuffer, 0, dataBuffer.Length);
+                OnlineGame choosedGame = JsonSerializer.Deserialize<OnlineGame>(Encoding.Default.GetString(dataBuffer));
+                int choosenGameIndex = 0;
+                foreach(OnlineGame g in gamesList)
+                {
+                    choosenGameIndex++;
+                    if(g == choosedGame)
+                        break;
+                }
                 //TODO: change choosen game and send it to both of players. (with ready to play flag)
+                gamesList[choosenGameIndex].clientStream = firstStream;
+                gamesList[choosenGameIndex].isGameready = true;
                 //TODO: change game in list to started.
                 //TODO: start endless cycle to send/read new changed game
             }
