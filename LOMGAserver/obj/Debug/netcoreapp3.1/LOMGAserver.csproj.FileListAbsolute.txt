@@ -1,0 +1,16 @@
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\bin\Debug\netcoreapp3.1\LOMGAserver.exe
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\bin\Debug\netcoreapp3.1\LOMGAserver.deps.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\bin\Debug\netcoreapp3.1\LOMGAserver.runtimeconfig.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\bin\Debug\netcoreapp3.1\LOMGAserver.runtimeconfig.dev.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\bin\Debug\netcoreapp3.1\LOMGAserver.dll
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\bin\Debug\netcoreapp3.1\LOMGAserver.pdb
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\bin\Debug\netcoreapp3.1\LOMGAgameClass.dll
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\bin\Debug\netcoreapp3.1\LOMGAgameClass.pdb
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.csprojAssemblyReference.cache
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.AssemblyInfoInputs.cache
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.AssemblyInfo.cs
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.csproj.CoreCompileInputs.cache
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.csproj.CopyComplete
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.dll
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.pdb
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.genruntimeconfig.cache

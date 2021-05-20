@@ -5,14 +5,17 @@ namespace LOMGAgameClass
     [Serializable]
     public class GameClassTTT : OnlineGame
     {
-        public bool turnFlag;       // true - X,    false - O       1 - X     2 - O    0 - empty cell
-        public int[,] field;
-        public int columnSize, rowSize;
-        public bool isWin = false;
-        public int forWinCount = 3;
+        public bool turnFlag { get; set; }       // true - X,    false - O       1 - X     2 - O    0 - empty cell
+        public int[,] field { get; set; }
+        public int columnSize { get; set; }
+        public int rowSize { get; set; }
+        public bool isWin { get; set; }
+        public int forWinCount { get; set; }
 
         public GameClassTTT()
         {
+            isWin = false;
+            forWinCount = 3;
             columnSize = 3;
             rowSize = 3;
             field = new int[columnSize, rowSize];
@@ -25,6 +28,8 @@ namespace LOMGAgameClass
         }
         public GameClassTTT(int columnCount, int rowCount)
         {
+            isWin = false;
+            forWinCount = 3;
             columnSize = columnCount;
             rowSize = rowCount;
             field = new int[rowSize, columnSize];

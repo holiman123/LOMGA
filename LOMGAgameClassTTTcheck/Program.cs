@@ -1,5 +1,8 @@
 ﻿using System;
 using LOMGAgameClass;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
 
 namespace LOMGAgameClassTTTcheck
 {
@@ -7,55 +10,20 @@ namespace LOMGAgameClassTTTcheck
     {
         static void Main(string[] args)
         {
-            GameClassTTT game = new GameClassTTT(10, 3);
-            game.forWinCount = 3;
+            TcpClient clientHost = new TcpClient();
+            clientHost.Connect(System.Net.IPAddress.Parse("127.0.0.1"), 2003);
+            NetworkStream streamHost = clientHost.GetStream();
 
-            Console.WriteLine(game.turn(0, 0));
-            Console.WriteLine(game.turn(0, 1));
+            byte[] data = Encoding.Default.GetBytes("start,0");
+            streamHost.Write(data, 0, data.Length);
 
-            #region show field
-            Console.WriteLine();
-            for (int i = 0; i < game.rowSize; i++)
-            {
-                for (int j = 0; j < game.columnSize; j++)
-                {
-                    Console.Write(game.field[i, j]);
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine(game.isWin);
-            #endregion
+            TcpClient clientClient = new TcpClient();
+            clientClient.Connect(System.Net.IPAddress.Parse("127.0.0.1"), 2003);
+            NetworkStream streamClient = clientClient.GetStream();
 
-            Console.WriteLine(game.turn(1, 0));
-            Console.WriteLine(game.turn(0, 2));
-
-            #region show field
-            Console.WriteLine();
-            for (int i = 0; i < game.rowSize; i++)
-            {
-                for (int j = 0; j < game.columnSize; j++)
-                {
-                    Console.Write(game.field[i, j]);
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine(game.isWin);
-            #endregion
-
-            Console.WriteLine(game.turn(2, 0));
-
-            #region show field
-            Console.WriteLine();
-            for (int i = 0; i < game.rowSize; i++)
-            {
-                for (int j = 0; j < game.columnSize; j++)
-                {
-                    Console.Write(game.field[i, j]);
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine(game.isWin);
-            #endregion
+            data = Encoding.Default.GetBytes("list,");
+            Thread.Sleep(5000);
+            streamClient.Write(data, 0, data.Length);
 
             Console.ReadKey();
         }
