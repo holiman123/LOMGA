@@ -3,7 +3,7 @@
 namespace LOMGAgameClass
 {
     [Serializable]
-    public class GameClassTTT : OnlineGame
+    public class GameClassTTT : Game
     {
         public bool turnFlag { get; set; }       // true - X,    false - O       1 - X     2 - O    0 - empty cell
         public int[,] field { get; set; }

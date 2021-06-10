@@ -11,6 +11,33 @@
         "runtime": {
           "bin/placeholder/LOMGAgameClass.dll": {}
         }
+      },
+      "LOMGAgameClassTTTcheck/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "LOMGAgameClass": "1.0.0",
+          "LOMGAserver": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LOMGAgameClassTTTcheck.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LOMGAgameClassTTTcheck.dll": {}
+        }
+      },
+      "LOMGAserver/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "LOMGAgameClass": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LOMGAserver.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LOMGAserver.dll": {}
+        }
       }
     }
   },
@@ -19,11 +46,23 @@
       "type": "project",
       "path": "../LOMGAgameClass/LOMGAgameClass.csproj",
       "msbuildProject": "../LOMGAgameClass/LOMGAgameClass.csproj"
+    },
+    "LOMGAgameClassTTTcheck/1.0.0": {
+      "type": "project",
+      "path": "../LOMGAgameClassTTTcheck/LOMGAgameClassTTTcheck.csproj",
+      "msbuildProject": "../LOMGAgameClassTTTcheck/LOMGAgameClassTTTcheck.csproj"
+    },
+    "LOMGAserver/1.0.0": {
+      "type": "project",
+      "path": "../LOMGAserver/LOMGAserver.csproj",
+      "msbuildProject": "../LOMGAserver/LOMGAserver.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "LOMGAgameClass >= 1.0.0"
+      "LOMGAgameClass >= 1.0.0",
+      "LOMGAgameClassTTTcheck >= 1.0.0",
+      "LOMGAserver >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -58,8 +97,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj": {
+              "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj"
+            },
             "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj": {
               "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj"
+            },
+            "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAserver\\LOMGAserver.csproj": {
+              "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAserver\\LOMGAserver.csproj"
             }
           }
         }

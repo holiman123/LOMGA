@@ -1,22 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Net.Sockets;
+using System.Net;
 
 namespace LOMGAgameClass
 {
-    [Serializable]
     public class OnlineGame
     {
-        public int gameIndex { get; set; }
-        public NetworkStream hostStream { get; set; }
-        public NetworkStream clientStream { get; set; }
+        public Game gameExemplar;
+        public NetworkStream hostStream;
+        public NetworkStream clientStream;
 
-        public bool isGameready { get; set; }
-        public bool isStarted { get; set; }
-
-        public static bool operator ==(OnlineGame a, OnlineGame b) =>
-            a.gameIndex == b.gameIndex;
-
-        public static bool operator !=(OnlineGame a, OnlineGame b) =>
-            a.gameIndex != b.gameIndex;
+        public OnlineGame(Game gameExemplar, NetworkStream hostStream, NetworkStream clientStream)
+        {
+            this.gameExemplar = gameExemplar;
+            this.clientStream = clientStream;
+            this.hostStream = hostStream;
+        }
+        public OnlineGame() { }
     }
 }

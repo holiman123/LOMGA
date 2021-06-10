@@ -14,3 +14,15 @@ C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\L
 C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClass.pdb
 C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\obj\Debug\netcoreapp3.1\LittleTests.csproj.CopyComplete
 C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\obj\Debug\netcoreapp3.1\LittleTests.csprojAssemblyReference.cache
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.deps.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.runtimeconfig.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.runtimeconfig.dev.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.exe
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAserver.deps.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAserver.runtimeconfig.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAserver.runtimeconfig.dev.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAserver.exe
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.dll
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAserver.dll
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.pdb
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\bin\Debug\netcoreapp3.1\LOMGAserver.pdb

@@ -14,3 +14,9 @@ C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\obj\Debug\netc
 C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.dll
 C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.pdb
 C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.genruntimeconfig.cache
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAserver.deps.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAserver.runtimeconfig.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAserver.runtimeconfig.dev.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAserver.exe
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAserver.dll
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAserver.pdb

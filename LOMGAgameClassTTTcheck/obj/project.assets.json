@@ -11,6 +11,19 @@
         "runtime": {
           "bin/placeholder/LOMGAgameClass.dll": {}
         }
+      },
+      "LOMGAserver/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "LOMGAgameClass": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LOMGAserver.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LOMGAserver.dll": {}
+        }
       }
     }
   },
@@ -19,11 +32,17 @@
       "type": "project",
       "path": "../LOMGAgameClass/LOMGAgameClass.csproj",
       "msbuildProject": "../LOMGAgameClass/LOMGAgameClass.csproj"
+    },
+    "LOMGAserver/1.0.0": {
+      "type": "project",
+      "path": "../LOMGAserver/LOMGAserver.csproj",
+      "msbuildProject": "../LOMGAserver/LOMGAserver.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "LOMGAgameClass >= 1.0.0"
+      "LOMGAgameClass >= 1.0.0",
+      "LOMGAserver >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -60,6 +79,9 @@
           "projectReferences": {
             "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj": {
               "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj"
+            },
+            "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAserver\\LOMGAserver.csproj": {
+              "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAserver\\LOMGAserver.csproj"
             }
           }
         }

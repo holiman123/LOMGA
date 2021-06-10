@@ -1,28 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using System.Text.Json;
 using LOMGAgameClass;
+using LOMGAserver;
 
 namespace LittleTests
 {
     class Program
     {
-        public static List<OnlineGame> testList = new List<OnlineGame>();
 
         static void Main(string[] args)
         {
-            testList.Add(new GameClassTTT());
-            testList.Add(new GameClassTTT());
-            Thread t = new Thread(new ParameterizedThreadStart(ser));
-            t.Start();
+            GameClassTTT c1 = new GameClassTTT();
+            c1.gameIndex = 3;
+            Game g1 = c1;
+            byte[] data = MySerializer.serialize(c1);
+            Game g2 = (Game)MySerializer.deserialize(data);
+            GameClassTTT c2 = (GameClassTTT)g2;
+            Console.WriteLine(c2.gameIndex);
 
             Console.ReadKey();
-        }
-
-        public static void ser(object s)
-        {
-            Console.WriteLine(JsonSerializer.Serialize(testList));
         }
     }
 }

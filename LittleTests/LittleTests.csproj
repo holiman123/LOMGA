@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LOMGAgameClassTTTcheck\LOMGAgameClassTTTcheck.csproj" />
     <ProjectReference Include="..\LOMGAgameClass\LOMGAgameClass.csproj" />
+    <ProjectReference Include="..\LOMGAserver\LOMGAserver.csproj" />
   </ItemGroup>
 
 </Project>

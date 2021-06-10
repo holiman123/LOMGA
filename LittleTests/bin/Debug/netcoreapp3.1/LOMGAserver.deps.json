@@ -6,20 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "LOMGAgameClassTTTcheck/1.0.0": {
-        "dependencies": {
-          "LOMGAgameClass": "1.0.0",
-          "LOMGAserver": "1.0.0"
-        },
-        "runtime": {
-          "LOMGAgameClassTTTcheck.dll": {}
-        }
-      },
-      "LOMGAgameClass/1.0.0": {
-        "runtime": {
-          "LOMGAgameClass.dll": {}
-        }
-      },
       "LOMGAserver/1.0.0": {
         "dependencies": {
           "LOMGAgameClass": "1.0.0"
@@ -27,21 +13,21 @@
         "runtime": {
           "LOMGAserver.dll": {}
         }
+      },
+      "LOMGAgameClass/1.0.0": {
+        "runtime": {
+          "LOMGAgameClass.dll": {}
+        }
       }
     }
   },
   "libraries": {
-    "LOMGAgameClassTTTcheck/1.0.0": {
+    "LOMGAserver/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "LOMGAgameClass/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "LOMGAserver/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,10 +1,13 @@
-﻿using System;
+﻿
+// MAIN TODO:       -rewrite ALL serializers to new statement (that one with memoryStream).
+
+
+using System;
 using LOMGAgameClass;
 using System.Net.Sockets;
 using System.Threading;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.Json;
 
 namespace LOMGAserver
 {
@@ -14,6 +17,8 @@ namespace LOMGAserver
 
         static void Main(string[] args)
         {
+            
+
             TcpListener server = new TcpListener(System.Net.IPAddress.Any, 2003);
             server.Start();
             Console.WriteLine("Server started...");
@@ -37,70 +42,101 @@ namespace LOMGAserver
             Console.WriteLine("connection thread started:");
             NetworkStream firstStream = (NetworkStream)stream;
 
-            byte[] data = new byte[128];
-            Console.WriteLine("debug");
+            byte[] data = new byte[512];
             firstStream.Read(data, 0, data.Length);
 
             if (Encoding.Default.GetString(data).Split(',')[0] == "start")
             {
                 Console.WriteLine("new game starting");
-                //TODO: choose game by second part of string message from host-client
-                GameClassTTT game = new GameClassTTT();
-                game.hostStream = firstStream;
-                game.gameIndex = gamesList.Count;
-                gamesList.Add(game);
-                Console.WriteLine("new game added to list           " + JsonSerializer.Serialize(gamesList[0]));
-            }
 
-            Console.WriteLine(Encoding.Default.GetString(data));
+                // choose game by second part of string message from host-client
+                OnlineGame onlineGame = null;
+                Convert.ToInt32(Encoding.Default.GetString(data).Split(',')[1]);
+                switch (Convert.ToInt32(Encoding.Default.GetString(data).Split(',')[1]))
+                {
+                    case 0:   // TTT game
+                        GameClassTTT tempTTTGameClass = new GameClassTTT();
+                        tempTTTGameClass.gameType = -1;
+                        onlineGame = new OnlineGame();
+                        onlineGame.hostStream = firstStream;
+                        onlineGame.gameExemplar = tempTTTGameClass;
+                        break;
+                }
+
+                // add new game to games list
+                if (onlineGame != null)
+                {
+                    onlineGame.gameExemplar.gameIndex = gamesList.Count;
+                    gamesList.Add(onlineGame);
+                    Console.WriteLine("new game added to list");
+                }
+            }
 
             if (Encoding.Default.GetString(data).Split(',')[0] == "list")
             {
-                Console.WriteLine("list request\t" + JsonSerializer.Serialize(gamesList));
-
-                // send list of games
-                byte[] dataBuffer; 
-                dataBuffer = Encoding.Default.GetBytes(JsonSerializer.Serialize(gamesList));
-                Console.WriteLine(dataBuffer.Length);
-                Console.WriteLine("\n\n\n\n" + JsonSerializer.Serialize(gamesList));
-                firstStream.Write(dataBuffer, 0, data.Length);
+                Console.WriteLine("List request!");
+                // create and send list of games
+                byte[] buffer;
+                for (int i = 0; i <= gamesList.Count; i++)
+                {
+                    if (i != gamesList.Count)
+                    {
+                        Console.WriteLine("debug");
+                        buffer = MySerializer.serialize(gamesList[i].gameExemplar);
+                    }
+                    else
+                    {
+                        buffer = Encoding.Default.GetBytes("end.");
+                    }
+                    firstStream.Write(buffer, 0, buffer.Length);
+                }
 
                 // read choosen game
-                dataBuffer = new byte[512];
-                firstStream.Read(dataBuffer, 0, dataBuffer.Length);
-                OnlineGame choosedGame = JsonSerializer.Deserialize<OnlineGame>(Encoding.Default.GetString(dataBuffer));
-                int choosenGameIndex = 0;
-                foreach(OnlineGame g in gamesList)
+                firstStream.Read(data, 0, data.Length);
+                Game readedGame = (Game)MySerializer.deserialize(data);
+                // compare deserialize game to list, and find choosed game
+                int choosedGameIndex = -1;
+                foreach (OnlineGame g in gamesList)
                 {
-                    choosenGameIndex++;
-                    if(g == choosedGame)
-                        break;
+                    if (g.gameExemplar == readedGame)
+                        choosedGameIndex = g.gameExemplar.gameIndex;
                 }
-                // change choosen game and send it to both of players. (with ready to play flag)
-                gamesList[choosenGameIndex].clientStream = firstStream;
-                gamesList[choosenGameIndex].isGameready = true;
-                dataBuffer = Encoding.Default.GetBytes(JsonSerializer.Serialize(gamesList[choosenGameIndex]));
-                gamesList[choosenGameIndex].hostStream.Write(data, 0, dataBuffer.Length);
-                gamesList[choosenGameIndex].clientStream.Write(data, 0, dataBuffer.Length);
-                // change game in list to started.
-                gamesList[choosenGameIndex].isStarted = true;
+
+                // change choosen game parametrs (set client stream) and send it to both of players. (with ready to play flag)
+                gamesList[choosedGameIndex].clientStream = firstStream;
+                gamesList[choosedGameIndex].gameExemplar.isGameready = true;
+                gamesList[choosedGameIndex].gameExemplar.isStarted = true;
+               
+                // send to both
+                buffer = MySerializer.serialize(gamesList[choosedGameIndex].gameExemplar);
+                gamesList[choosedGameIndex].clientStream.Write(buffer, 0, buffer.Length);
+                gamesList[choosedGameIndex].hostStream.Write(buffer, 0, buffer.Length);
+
                 //TODO: start endless cycle to send/read new changed game
-                Thread hostTransmitThread = new Thread(unused => transmitMethod(gamesList[choosenGameIndex].hostStream, gamesList[choosenGameIndex].clientStream));
-                Thread clientTransmitThread = new Thread(unused => transmitMethod(gamesList[choosenGameIndex].clientStream, gamesList[choosenGameIndex].hostStream));
+                Thread hostTransmitThread = new Thread(unused => transmitMethod(gamesList[choosedGameIndex].clientStream, gamesList[choosedGameIndex].hostStream, gamesList[choosedGameIndex]));
+                Thread clientTransmitThread = new Thread(unused => transmitMethod(gamesList[choosedGameIndex].clientStream, gamesList[choosedGameIndex].hostStream, gamesList[choosedGameIndex]));
                 hostTransmitThread.Start();
                 clientTransmitThread.Start();
             }
         }
 
-        public static void transmitMethod(NetworkStream streamHost, NetworkStream streamClient)
+        public static void transmitMethod(NetworkStream streamHost, NetworkStream streamClient, OnlineGame game)
         {
-            byte[] data = new byte[512];
+            Console.WriteLine("Transmit method started");
+            byte[] data;
             while (true)
             {
-                data = new byte[512];
-                streamHost.Read(data, 0, data.Length);
-                streamClient.Write(data, 0, data.Length);
+                data = new byte[1024];
+                try
+                {
+                    streamHost.Read(data, 0, data.Length);
+                    streamClient.Write(data, 0, data.Length);
+                }
+                catch (Exception e) { break; }
             }
+            game.clientStream.Close();
+            game.hostStream.Close();
+            Console.WriteLine("both streams have been closed.");
         }
 
     }
