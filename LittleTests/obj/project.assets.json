@@ -72,9 +72,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LittleTests\\LittleTests.csproj",
-      "projectName": "LittleTests",
-      "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LittleTests\\LittleTests.csproj",
+      "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LittleTests\\LittleTestsServer.csproj",
+      "projectName": "LittleTestsServer",
+      "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LittleTests\\LittleTestsServer.csproj",
       "packagesPath": "C:\\Users\\luchi\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LittleTests\\obj\\",
       "projectStyle": "PackageReference",

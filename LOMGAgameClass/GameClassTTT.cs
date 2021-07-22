@@ -12,8 +12,11 @@ namespace LOMGAgameClass
         public bool isWin { get; set; }
         public int forWinCount { get; set; }
 
+        public bool areYouTurningFirst = false;
+
         public GameClassTTT()
         {
+            gameType = 1; // TTT
             isWin = false;
             forWinCount = 3;
             columnSize = 3;
@@ -28,6 +31,7 @@ namespace LOMGAgameClass
         }
         public GameClassTTT(int columnCount, int rowCount)
         {
+            gameType = 1; // TTT
             isWin = false;
             forWinCount = 3;
             columnSize = columnCount;

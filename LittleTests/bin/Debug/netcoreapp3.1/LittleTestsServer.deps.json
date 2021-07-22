@@ -1,0 +1,65 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "LittleTestsServer/1.0.0": {
+        "dependencies": {
+          "LOMGAgameClass": "1.0.0",
+          "LOMGAgameClassTTTcheck": "1.0.0",
+          "LOMGAserver": "1.0.0"
+        },
+        "runtime": {
+          "LittleTestsServer.dll": {}
+        }
+      },
+      "LOMGAgameClass/1.0.0": {
+        "runtime": {
+          "LOMGAgameClass.dll": {}
+        }
+      },
+      "LOMGAgameClassTTTcheck/1.0.0": {
+        "dependencies": {
+          "LOMGAgameClass": "1.0.0",
+          "LOMGAserver": "1.0.0"
+        },
+        "runtime": {
+          "LOMGAgameClassTTTcheck.dll": {}
+        }
+      },
+      "LOMGAserver/1.0.0": {
+        "dependencies": {
+          "LOMGAgameClass": "1.0.0"
+        },
+        "runtime": {
+          "LOMGAserver.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LittleTestsServer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LOMGAgameClass/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LOMGAgameClassTTTcheck/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LOMGAserver/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

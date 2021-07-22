@@ -10,7 +10,129 @@ namespace LOMGAgameClassTTTcheck
 {
     class Program
     {
+        public static void hardTestAdditionalthread(NetworkStream stream, Game game)
+        {
+            if (((GameClassTTT)game).areYouTurningFirst)
+            {
+                ((GameClassTTT)game).areYouTurningFirst = false;
+                // show field
+                Console.WriteLine("{0} {1} {2}", ((GameClassTTT)game).field[0, 0], ((GameClassTTT)game).field[0, 1], ((GameClassTTT)game).field[0, 2]);
+                Console.WriteLine("{0} {1} {2}", ((GameClassTTT)game).field[1, 0], ((GameClassTTT)game).field[1, 1], ((GameClassTTT)game).field[1, 2]);
+                Console.WriteLine("{0} {1} {2}", ((GameClassTTT)game).field[2, 0], ((GameClassTTT)game).field[2, 1], ((GameClassTTT)game).field[2, 2]);
+
+                // turning
+                Console.WriteLine("make your turn");
+                string turnString = Console.ReadLine();
+
+                // send new turn
+                ((GameClassTTT)game).turn(Convert.ToInt32(turnString.Split(' ')[0]), Convert.ToInt32(turnString.Split(' ')[1]));
+                stream.Write(MySerializer.serialize(game));
+                Console.WriteLine("new turn sended " + MySerializer.serialize(game).Length);
+            }
+
+            byte[] data;
+            do
+            {
+                // get opponent turn
+                data = new byte[1024];
+                Console.WriteLine("Wait untill opponent make turn...");
+                stream.Read(data);
+                game = (Game)MySerializer.deserialize(data);
+
+                // show field
+                Console.WriteLine("{0} {1} {2}", ((GameClassTTT)game).field[0, 0], ((GameClassTTT)game).field[0, 1], ((GameClassTTT)game).field[0, 2]);
+                Console.WriteLine("{0} {1} {2}", ((GameClassTTT)game).field[1, 0], ((GameClassTTT)game).field[1, 1], ((GameClassTTT)game).field[1, 2]);
+                Console.WriteLine("{0} {1} {2}", ((GameClassTTT)game).field[2, 0], ((GameClassTTT)game).field[2, 1], ((GameClassTTT)game).field[2, 2]);
+
+                // turning
+                Console.WriteLine("make your turn");
+                string turnString = Console.ReadLine();
+
+                // send new turn
+                ((GameClassTTT)game).turn(Convert.ToInt32(turnString.Split(' ')[0]), Convert.ToInt32(turnString.Split(' ')[1]));
+                stream.Write(MySerializer.serialize(game));
+                Console.WriteLine("new turn sended " + MySerializer.serialize(game).Length);
+
+            } while (true);
+        }
+
         static void Main(string[] args)
+        {
+            hardTest();
+
+            Console.ReadKey();
+        }
+
+        static void hardTest()
+        {
+            // Create tcp client and connect
+            Console.WriteLine("Connecting...");
+            TcpClient client = new TcpClient();
+            client.Connect(System.Net.IPAddress.Parse("127.0.0.1"), 2003);
+            NetworkStream stream = client.GetStream();
+            List<Game> gamesList = new List<Game>();
+
+            while (true)
+            {
+                // get command:
+                Console.WriteLine("Write command:");
+                string message = Console.ReadLine();
+
+                if (message == "start")
+                {
+                    Console.WriteLine("Write type of game ( 0 - TicTacToy )");
+                    message += "," + Console.ReadLine();
+                    byte[] startData = Encoding.Default.GetBytes(message);
+                    stream.Write(startData);
+
+                    break;
+                }
+
+                if (message == "list")
+                {
+                    message += ",";
+                    byte[] listData = Encoding.Default.GetBytes(message);
+                    stream.Write(listData);
+
+                    while (true)
+                    {
+                        listData = new byte[512];
+                        stream.Read(listData);
+
+                        if (Encoding.Default.GetString(listData).Remove(4) == "end.")
+                            break;
+
+                        gamesList.Add((Game)MySerializer.deserialize(listData));
+                        Console.WriteLine("recived " + gamesList[gamesList.Count - 1].gameType + "-type game!");
+                    }
+                    Console.WriteLine("recived games count: " + gamesList.Count);
+                }
+
+                if (message == "choose")
+                {
+                    byte[] chooseData = Encoding.Default.GetBytes("choose,");
+                    stream.Write(chooseData);
+
+                    Console.WriteLine("Write number of game you want to connect:");
+                    int choosedGameIndex = Convert.ToInt32(Console.ReadLine());
+
+                    chooseData = MySerializer.serialize(gamesList[choosedGameIndex]);
+                    stream.Write(chooseData);
+
+                    break;
+                }
+            }
+
+            byte[] data = new byte[1024];
+            stream.Read(data);
+            Game myGame = (Game)MySerializer.deserialize(data);
+
+            Console.WriteLine("Game started!");
+
+            hardTestAdditionalthread(stream, myGame);
+        }
+
+        static void simpleTest()
         {
             List<Game> gamesList = new List<Game>();
 
@@ -18,18 +140,21 @@ namespace LOMGAgameClassTTTcheck
             clientHost.Connect(System.Net.IPAddress.Parse("127.0.0.1"), 2003);
             NetworkStream streamHost = clientHost.GetStream();
 
+            // send message to start new game, ( 0 - means TTT )
             byte[] data = Encoding.Default.GetBytes("start,0");
             streamHost.Write(data, 0, data.Length);
 
+            // another player connected
             TcpClient clientClient = new TcpClient();
             clientClient.Connect(System.Net.IPAddress.Parse("127.0.0.1"), 2003);
             NetworkStream streamClient = clientClient.GetStream();
 
+            // second player getting list
             data = Encoding.Default.GetBytes("list,");
             Thread.Sleep(2000);
             streamClient.Write(data, 0, data.Length);
             byte[] data1;
-            while(true)
+            while (true)
             {
                 data1 = new byte[512];
                 streamClient.Read(data1, 0, data1.Length);
@@ -42,29 +167,35 @@ namespace LOMGAgameClassTTTcheck
             }
             Console.WriteLine("recived games count: " + gamesList.Count);
 
+            // choose first game from list
+            data = Encoding.Default.GetBytes("choose,");
+            streamClient.Write(data, 0, data.Length);
+
             data = MySerializer.serialize(gamesList[0]);
-            streamClient.Write(data, 0 , data.Length);
+            streamClient.Write(data, 0, data.Length);
 
             data = new byte[1024];
             data1 = new byte[1024];
 
+            // reading info about new game
             streamClient.Read(data);
             streamHost.Read(data1);
+            Console.WriteLine("geted new games");
 
             Game myGame1 = (Game)MySerializer.deserialize(data);
             Game myGame2 = (Game)MySerializer.deserialize(data1);
 
-            ((GameClassTTT)myGame1).turn(1,1);
+            ((GameClassTTT)myGame1).turn(1, 1);
 
             streamClient.Write(MySerializer.serialize(myGame1));
+            Console.WriteLine("game with new turn sended");
 
             data1 = new byte[1024];
             streamHost.Read(data1);
+            Console.WriteLine("game with new turn recived!");
             myGame2 = (Game)MySerializer.deserialize(data1);
 
             Console.WriteLine(((GameClassTTT)myGame2).field[1, 1]);
-
-            Console.ReadKey();
         }
     }
 }

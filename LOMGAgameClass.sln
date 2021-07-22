@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOMGAgameClassTTTcheck", "L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOMGAserver", "LOMGAserver\LOMGAserver.csproj", "{50E2CE16-45E5-492E-882E-89A2AC1F90DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LittleTests", "LittleTests\LittleTests.csproj", "{5F880940-3237-493E-8A1A-F594294F0A16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LittleTestsServer", "LittleTests\LittleTestsServer.csproj", "{5F880940-3237-493E-8A1A-F594294F0A16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LittleTestsClient", "LittleTestsClient\LittleTestsClient.csproj", "{B54CDA5F-DAD1-4DD8-A31C-A11EDF34B87B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{5F880940-3237-493E-8A1A-F594294F0A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F880940-3237-493E-8A1A-F594294F0A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F880940-3237-493E-8A1A-F594294F0A16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B54CDA5F-DAD1-4DD8-A31C-A11EDF34B87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B54CDA5F-DAD1-4DD8-A31C-A11EDF34B87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B54CDA5F-DAD1-4DD8-A31C-A11EDF34B87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B54CDA5F-DAD1-4DD8-A31C-A11EDF34B87B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

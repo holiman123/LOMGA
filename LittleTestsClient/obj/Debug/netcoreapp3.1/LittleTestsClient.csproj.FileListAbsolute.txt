@@ -1,0 +1,12 @@
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\bin\Debug\netcoreapp3.1\LittleTestsClient.exe
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\bin\Debug\netcoreapp3.1\LittleTestsClient.deps.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\bin\Debug\netcoreapp3.1\LittleTestsClient.runtimeconfig.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\bin\Debug\netcoreapp3.1\LittleTestsClient.runtimeconfig.dev.json
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\bin\Debug\netcoreapp3.1\LittleTestsClient.dll
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\bin\Debug\netcoreapp3.1\LittleTestsClient.pdb
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\obj\Debug\netcoreapp3.1\LittleTestsClient.AssemblyInfoInputs.cache
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\obj\Debug\netcoreapp3.1\LittleTestsClient.AssemblyInfo.cs
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\obj\Debug\netcoreapp3.1\LittleTestsClient.csproj.CoreCompileInputs.cache
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\obj\Debug\netcoreapp3.1\LittleTestsClient.dll
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\obj\Debug\netcoreapp3.1\LittleTestsClient.pdb
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\obj\Debug\netcoreapp3.1\LittleTestsClient.genruntimeconfig.cache
