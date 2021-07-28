@@ -6,3 +6,4 @@ C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClass\obj\Debug\netcoreapp3.
 C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClass\obj\Debug\netcoreapp3.1\LOMGAgameClass.csproj.CoreCompileInputs.cache
 C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClass\obj\Debug\netcoreapp3.1\LOMGAgameClass.dll
 C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClass\obj\Debug\netcoreapp3.1\LOMGAgameClass.pdb
+C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClass\obj\Debug\netcoreapp3.1\LOMGAgameClass.csprojAssemblyReference.cache

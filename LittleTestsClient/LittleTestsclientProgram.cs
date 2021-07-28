@@ -43,6 +43,7 @@ namespace LittleTestsClient
                 while (true)
                 {
                     data = new byte[256];
+                    Console.WriteLine("Waiting to recive");
                     stream.Read(data);
                     Console.WriteLine(Encoding.Default.GetString(data).Split(',')[0] + "\nwritePleas:");
                     string message = Console.ReadLine();

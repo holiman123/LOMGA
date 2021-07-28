@@ -10,3 +10,4 @@ C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\obj\Debug\netcoreap
 C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\obj\Debug\netcoreapp3.1\LittleTestsClient.dll
 C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\obj\Debug\netcoreapp3.1\LittleTestsClient.pdb
 C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\obj\Debug\netcoreapp3.1\LittleTestsClient.genruntimeconfig.cache
+C:\Users\luchi\source\repos\LOMGAgameClass\LittleTestsClient\obj\Debug\netcoreapp3.1\LittleTestsClient.csprojAssemblyReference.cache

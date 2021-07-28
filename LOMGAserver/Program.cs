@@ -32,12 +32,12 @@ namespace LOMGAserver
                 Console.WriteLine("client connected");
                 streamBuffer = clientBuffer.GetStream();
 
-                threadBuffer = new Thread(new ParameterizedThreadStart(connection));
-                threadBuffer.Start(streamBuffer);
+                threadBuffer = new Thread(unused => connection(streamBuffer));
+                threadBuffer.Start();
             }
         }
 
-        public static void connection(object stream)
+        public static void connection(NetworkStream stream)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace LOMGAserver
                 while (true)
                 {
                     byte[] data = new byte[512];
-                    firstStream.Read(data, 0, data.Length);
+                    stream.Read(data, 0, data.Length);
 
                     if (Encoding.Default.GetString(data).Split(',')[0] == "start")
                     {
@@ -55,13 +55,13 @@ namespace LOMGAserver
 
                         // choose game by second part of string message from host-client
                         OnlineGame onlineGame = null;
-                        Convert.ToInt32(Encoding.Default.GetString(data).Split(',')[1]);
-                        switch (Convert.ToInt32(Encoding.Default.GetString(data).Split(',')[1]))
+                        int recivedGameType = Convert.ToInt32(Encoding.Default.GetString(data).Split(',')[1]);
+                        switch (recivedGameType)
                         {
                             case 0:   // TTT game
                                 GameClassTTT tempTTTGameClass = new GameClassTTT();
                                 onlineGame = new OnlineGame();
-                                onlineGame.hostStream = firstStream;
+                                onlineGame.hostStream = stream;
                                 onlineGame.gameExemplar = tempTTTGameClass;
                                 break;
                         }
@@ -72,6 +72,7 @@ namespace LOMGAserver
                             onlineGame.gameExemplar.gameIndex = gamesList.Count;
                             gamesList.Add(onlineGame);
                             Console.WriteLine("new game added to list");
+                            break;
                         }
                     }
 
@@ -91,14 +92,14 @@ namespace LOMGAserver
                             {
                                 buffer1 = Encoding.Default.GetBytes("end.");
                             }
-                            firstStream.Write(buffer1, 0, buffer1.Length);
+                            stream.Write(buffer1, 0, buffer1.Length);
                         }
                     }
 
                     if (Encoding.Default.GetString(data).Split(',')[0] == "choose")
                     {
                         // read choosen game
-                        firstStream.Read(data, 0, data.Length);
+                        stream.Read(data, 0, data.Length);
                         Game readedGame = (Game)MySerializer.deserialize(data);
                         // compare deserialize game to list, and find choosed game
                         int choosedGameIndex = -1;
@@ -111,7 +112,7 @@ namespace LOMGAserver
                         Console.WriteLine("list of games count:" + gamesList.Count);
 
                         // change choosen game parametrs (set client stream) and send it to both of players. (with ready to play flag)
-                        gamesList[choosedGameIndex].clientStream = firstStream;
+                        gamesList[choosedGameIndex].clientStream = stream;
                         gamesList[choosedGameIndex].gameExemplar.isGameready = true;
                         gamesList[choosedGameIndex].gameExemplar.isStarted = true;
 
@@ -126,41 +127,45 @@ namespace LOMGAserver
                         gamesList[choosedGameIndex].hostStream.Write(buffer, 0, buffer.Length);
 
                         //start endless cycle to send/read new changed game
-                        //Thread hostTransmitThread = new Thread(unused => transmitMethod(gamesList[choosedGameIndex].clientStream, gamesList[choosedGameIndex].hostStream, gamesList[choosedGameIndex]));
-                        //hostTransmitThread.Start();
-                        //Thread clientTransmitThread = new Thread(unused => transmitMethod(gamesList[choosedGameIndex].hostStream, gamesList[choosedGameIndex].clientStream, gamesList[choosedGameIndex]));
-                        //clientTransmitThread.Start();
-                        //break;
+                        Thread hostTransmitThread = new Thread(unused => transmitMethod(gamesList[choosedGameIndex].hostStream, gamesList[choosedGameIndex].clientStream));
+                        hostTransmitThread.Start();
+                        Thread clientTransmitThread = new Thread(unused => transmitMethod(gamesList[choosedGameIndex].clientStream, gamesList[choosedGameIndex].hostStream));
+                        clientTransmitThread.Start();
+                        break;
 
                         //======================================
-                        Console.WriteLine("Transmit method started");
-                        data = new byte[1024];
-                        try
-                        {
-                            //if (((GameClassTTT)game.gameExemplar).turnFlag)
-                            //{
-                            //    Console.WriteLine("waiting to change!");
-                            //    stream2.Read(data);
-                            //    Console.WriteLine("Game changing!");
-                            //    stream1.Write(data);
-                            //}
-                            while (true)
-                            {
-                                data = new byte[1024];
-                                Console.WriteLine("waiting to change!");
-                                gamesList[choosedGameIndex].hostStream.Read(data);
-                                Console.WriteLine("Game changing!");
-                                gamesList[choosedGameIndex].clientStream.Write(data);
-                                Console.WriteLine("waiting to change!");
-                                gamesList[choosedGameIndex].clientStream.Read(data);
-                                Console.WriteLine("Game changing!");
-                                gamesList[choosedGameIndex].hostStream.Write(data);
-                            }
-                        }
-                        catch (Exception e) { Console.WriteLine(e.Message); }
-                        gamesList[choosedGameIndex].clientStream.Close();
-                        gamesList[choosedGameIndex].hostStream.Close();
-                        Console.WriteLine("both streams have been closed.");
+                        //Console.WriteLine("Transmit method started");
+                        //data = new byte[1024];
+                        //try
+                        //{
+                        //    //if (((GameClassTTT)game.gameExemplar).turnFlag)
+                        //    //{
+                        //    //    Console.WriteLine("waiting to change!");
+                        //    //    stream2.Read(data);
+                        //    //    Console.WriteLine("Game changing!");
+                        //    //    stream1.Write(data);
+                        //    //}
+                        //    while (true)
+                        //    {
+                        //        data = new byte[1024];
+                        //        Console.WriteLine("hostStream canRead:" + gamesList[choosedGameIndex].hostStream.CanRead);
+                        //        Console.WriteLine("waiting to change!");
+                        //        gamesList[choosedGameIndex].hostStream.Read(data, 0, 471);
+                        //        Console.WriteLine("clientStream canWrite:" + gamesList[choosedGameIndex].clientStream.CanWrite);
+                        //        Console.WriteLine("Game changing!");
+                        //        gamesList[choosedGameIndex].clientStream.Write(data, 0, 471);
+                        //        Console.WriteLine("clientStream canRead:" + gamesList[choosedGameIndex].clientStream.CanRead);
+                        //        Console.WriteLine("waiting to change!");
+                        //        gamesList[choosedGameIndex].clientStream.Read(data, 0, 471);
+                        //        Console.WriteLine("hostStream canWrite:" + gamesList[choosedGameIndex].hostStream.CanWrite);
+                        //        Console.WriteLine("Game changing!");
+                        //        gamesList[choosedGameIndex].hostStream.Write(data, 0, 471);
+                        //    }
+                        //}
+                        //catch (Exception e) { Console.WriteLine(e.Message); }
+                        //gamesList[choosedGameIndex].clientStream.Close();
+                        //gamesList[choosedGameIndex].hostStream.Close();
+                        //Console.WriteLine("both streams have been closed.");
                         //======================================
                     }
                 }
@@ -168,35 +173,36 @@ namespace LOMGAserver
             catch (Exception e) { Console.WriteLine(e.Message); }
         }
 
-        static void transmitMethod(NetworkStream stream1, NetworkStream stream2, OnlineGame game)
+        static void transmitMethod(NetworkStream stream1, NetworkStream stream2)
         {
             Console.WriteLine("Transmit method started");
-            byte[] data = new byte[1024];
             try
             {
-                //if (((GameClassTTT)game.gameExemplar).turnFlag)
-                //{
-                //    Console.WriteLine("waiting to change!");
-                //    stream2.Read(data);
-                //    Console.WriteLine("Game changing!");
-                //    stream1.Write(data);
-                //}
+                byte[] data = new byte[1024];
                 while (true)
                 {
-                    data = new byte[1024];
                     Console.WriteLine("waiting to change!");
+                    data = new byte[472]; 
                     stream1.Read(data);
                     Console.WriteLine("Game changing!");
                     stream2.Write(data);
-                    Console.WriteLine("waiting to change!");
-                    stream2.Read(data);
-                    Console.WriteLine("Game changing!");
-                    stream1.Write(data);
+                    //while (true)
+                    //{
+                    //    data = new byte[1024];
+                    //    Console.WriteLine("waiting to change! of " + stream1.CanRead);
+                    //    stream1.Read(data);
+                    //    Console.WriteLine("Game changing!");
+                    //    stream2.Write(data);
+                    //    Console.WriteLine("waiting to change!");
+                    //    stream2.Read(data);
+                    //    Console.WriteLine("Game changing!");
+                    //    stream1.Write(data);
+                    //}
                 }
             }
             catch (Exception e) { Console.WriteLine(e.Message); }
-            game.clientStream.Close();
-            game.hostStream.Close();
+            //game.clientStream.Close();
+            //game.hostStream.Close();
             Console.WriteLine("both streams have been closed.");
         }
     }

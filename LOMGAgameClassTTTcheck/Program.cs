@@ -12,6 +12,7 @@ namespace LOMGAgameClassTTTcheck
     {
         public static void hardTestAdditionalthread(NetworkStream stream, Game game)
         {
+            byte[] turnData;
             if (((GameClassTTT)game).areYouTurningFirst)
             {
                 ((GameClassTTT)game).areYouTurningFirst = false;
@@ -26,17 +27,18 @@ namespace LOMGAgameClassTTTcheck
 
                 // send new turn
                 ((GameClassTTT)game).turn(Convert.ToInt32(turnString.Split(' ')[0]), Convert.ToInt32(turnString.Split(' ')[1]));
-                stream.Write(MySerializer.serialize(game));
-                Console.WriteLine("new turn sended " + MySerializer.serialize(game).Length);
+                turnData = MySerializer.serialize(game);
+                stream.Write(turnData, 0, turnData.Length);
+                Console.WriteLine("new turn sended " + turnData.Length);
             }
 
             byte[] data;
-            do
+            while(true)
             {
                 // get opponent turn
                 data = new byte[1024];
                 Console.WriteLine("Wait untill opponent make turn...");
-                stream.Read(data);
+                stream.Read(data, 0, 472);
                 game = (Game)MySerializer.deserialize(data);
 
                 // show field
@@ -50,17 +52,17 @@ namespace LOMGAgameClassTTTcheck
 
                 // send new turn
                 ((GameClassTTT)game).turn(Convert.ToInt32(turnString.Split(' ')[0]), Convert.ToInt32(turnString.Split(' ')[1]));
-                stream.Write(MySerializer.serialize(game));
+                turnData = MySerializer.serialize(game);
+                stream.Write(turnData, 0, turnData.Length);
                 Console.WriteLine("new turn sended " + MySerializer.serialize(game).Length);
-
-            } while (true);
+            }
         }
 
         static void Main(string[] args)
         {
             hardTest();
 
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         static void hardTest()
@@ -83,7 +85,7 @@ namespace LOMGAgameClassTTTcheck
                     Console.WriteLine("Write type of game ( 0 - TicTacToy )");
                     message += "," + Console.ReadLine();
                     byte[] startData = Encoding.Default.GetBytes(message);
-                    stream.Write(startData);
+                    stream.Write(startData, 0, startData.Length);
 
                     break;
                 }
@@ -92,12 +94,12 @@ namespace LOMGAgameClassTTTcheck
                 {
                     message += ",";
                     byte[] listData = Encoding.Default.GetBytes(message);
-                    stream.Write(listData);
+                    stream.Write(listData, 0, listData.Length);
 
                     while (true)
                     {
                         listData = new byte[512];
-                        stream.Read(listData);
+                        stream.Read(listData, 0, 471);
 
                         if (Encoding.Default.GetString(listData).Remove(4) == "end.")
                             break;
@@ -111,20 +113,20 @@ namespace LOMGAgameClassTTTcheck
                 if (message == "choose")
                 {
                     byte[] chooseData = Encoding.Default.GetBytes("choose,");
-                    stream.Write(chooseData);
+                    stream.Write(chooseData, 0, chooseData.Length);
 
                     Console.WriteLine("Write number of game you want to connect:");
                     int choosedGameIndex = Convert.ToInt32(Console.ReadLine());
 
                     chooseData = MySerializer.serialize(gamesList[choosedGameIndex]);
-                    stream.Write(chooseData);
+                    stream.Write(chooseData, 0, chooseData.Length);
 
                     break;
                 }
             }
 
             byte[] data = new byte[1024];
-            stream.Read(data);
+            stream.Read(data, 0, 472);
             Game myGame = (Game)MySerializer.deserialize(data);
 
             Console.WriteLine("Game started!");
