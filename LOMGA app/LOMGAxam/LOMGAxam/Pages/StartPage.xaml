@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:LOMGAxam"
+             x:Class="LOMGAxam.StartPage">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="WhiteSmoke">
+            <Label 
+                HeightRequest="80"
+                Text="L.O.M.G.A."
+                TextColor="#666666"
+                FontSize="55"
+                AbsoluteLayout.LayoutBounds="0.5,0.1"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                />
+            <local:MyEntry
+                HeightRequest="44"
+                WidthRequest="250"
+                FontSize="24"
+                TextColor="#666"
+                Text="NickName?"
+                AbsoluteLayout.LayoutBounds="0.5,0.35"
+                AbsoluteLayout.LayoutFlags="PositionProportional"                
+                />
+            <Button
+                Text="Play"
+                TextColor="#666666"
+                FontSize="28"
+                CornerRadius="14"
+                HeightRequest="55"
+                WidthRequest="250"
+                AbsoluteLayout.LayoutBounds="0.5,0.56"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="#C4C4C4"
+                Pressed="Button_Play_Pressed"
+                />
+            <Button
+                CornerRadius="12"
+                HeightRequest="55"
+                WidthRequest="250"
+                Text="Create game"
+                TextColor="#666"
+                FontSize="23"
+                AbsoluteLayout.LayoutBounds="0.5, 0.8"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="#C4C4C4"
+                Pressed="Button_CreateGame_Pressed"
+                />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
