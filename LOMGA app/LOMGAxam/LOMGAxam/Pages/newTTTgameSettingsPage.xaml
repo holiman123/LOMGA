@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LOMGAxam.Pages.newTTTgameSettingsPage"
+            xmlns:local="clr-namespace:LOMGAxam">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="WhiteSmoke" x:Name="allPage" Opacity="0">
+            <Label 
+                Text="Tic-Tac-Toe settings"
+                FontSize="30"
+                AbsoluteLayout.LayoutBounds="0.5, 0.1, 0.85, 0.15"
+                AbsoluteLayout.LayoutFlags="All"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                TextColor="#666"
+                />
+            <Label
+                HorizontalTextAlignment="Start"
+                Text="Field size:"
+                FontSize="20"
+                TextColor="#666"
+                AbsoluteLayout.LayoutBounds="0.2, 0.33"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                />
+            <local:MyEntry
+                TextColor="#666"
+                Text="3"
+                WidthRequest="40"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds="0.7, 0.33"
+                />
+            <Label
+                Text="X"
+                FontSize="22"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds="0.78, 0.33"
+                />
+            <local:MyEntry
+                TextColor="#666"
+                Text="3"
+                WidthRequest="40"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds="0.9, 0.33"
+                />
+            <AbsoluteLayout
+                BackgroundColor="Transparent"
+                WidthRequest="60"
+                HeightRequest="60"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds="0.8, 0.51"
+                >
+                <Frame
+                    HasShadow="False"
+                    BackgroundColor="#c4c4c4"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.7, 0.7"
+                    CornerRadius="13"
+                    />
+                <Frame
+                    HasShadow="False"
+                    CornerRadius="10"
+                    BackgroundColor="WhiteSmoke"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.6, 0.6"/>
+                <Frame
+                    x:Name="Password_tick"
+                    HasShadow="False"
+                    CornerRadius="5"
+                    BackgroundColor="#36954B"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.36, 0.36"
+                    Opacity="0"
+                    />
+                <Button
+                    BackgroundColor="Transparent"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 1"
+                    Pressed="CheckBox_TTT"
+                    />
+            </AbsoluteLayout>
+            <Label
+                HorizontalTextAlignment="Start"
+                Text="Password:"
+                FontSize="20"
+                TextColor="#666"
+                AbsoluteLayout.LayoutBounds="0.2, 0.52"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                />
+            <local:MyEntry
+                TextColor="#666"
+                Opacity="0"
+                IsEnabled="False"
+                x:Name="Password_Entry"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0.5, 0.66, 0.7, 0.07"
+                />
+            <Button
+                CornerRadius="12"
+                Text="Start"
+                TextColor="WhiteSmoke"
+                FontSize="32"
+                BackgroundColor="#36954B"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0.5, 0.84, 0.6, 0.11"
+                />
+            <ImageButton
+                HeightRequest="50"
+                WidthRequest="50"
+                Source="arrowBack.png"
+                BackgroundColor="Transparent"
+                AbsoluteLayout.LayoutBounds="0.95, 0.98"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Pressed="Back_Button_Pressed"
+                />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

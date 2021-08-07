@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:LOMGAxam"
              x:Class="LOMGAxam.StartPage">
     <ContentPage.Content>
-        <AbsoluteLayout BackgroundColor="WhiteSmoke">
+        <AbsoluteLayout BackgroundColor="WhiteSmoke" x:Name="allPage" Opacity="0">
             <Label 
                 HeightRequest="80"
                 Text="L.O.M.G.A."

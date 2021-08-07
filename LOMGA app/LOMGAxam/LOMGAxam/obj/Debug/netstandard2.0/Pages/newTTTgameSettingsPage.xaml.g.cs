@@ -8,25 +8,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("LOMGAxam.Pages.FastGameSettingsPage.xaml", "Pages/FastGameSettingsPage.xaml", typeof(global::LOMGAxam.Pages.FastGameSettingsPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("LOMGAxam.Pages.newTTTgameSettingsPage.xaml", "Pages/newTTTgameSettingsPage.xaml", typeof(global::LOMGAxam.Pages.newTTTgameSettingsPage))]
 
 namespace LOMGAxam.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\FastGameSettingsPage.xaml")]
-    public partial class FastGameSettingsPage : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\newTTTgameSettingsPage.xaml")]
+    public partial class newTTTgameSettingsPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.AbsoluteLayout allPage;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Frame TTT_tick;
+        private global::Xamarin.Forms.Frame Password_tick;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::LOMGAxam.MyEntry Password_Entry;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(FastGameSettingsPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(newTTTgameSettingsPage));
             allPage = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.AbsoluteLayout>(this, "allPage");
-            TTT_tick = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Frame>(this, "TTT_tick");
+            Password_tick = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Frame>(this, "Password_tick");
+            Password_Entry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::LOMGAxam.MyEntry>(this, "Password_Entry");
         }
     }
 }

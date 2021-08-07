@@ -18,14 +18,22 @@ namespace LOMGAxam
             InitializeComponent();
         }
 
-        private void Button_Play_Pressed(object sender, EventArgs e)
+        private async void Button_Play_Pressed(object sender, EventArgs e)
         {
-            Navigation.PushAsync(App.chooseConnectScreen, true);
+            await allPage.FadeTo(0, App.fadingTimeConst);
+            await Navigation.PushAsync(App.chooseConnectScreen, false);
         }
 
-        private void Button_CreateGame_Pressed(object sender, EventArgs e)
+        private async void Button_CreateGame_Pressed(object sender, EventArgs e)
         {
-            Navigation.PushAsync(App.createGamePage, true);
+            await allPage.FadeTo(0, App.fadingTimeConst);
+            await Navigation.PushAsync(App.createGamePage, false);
+        }
+
+        async protected override void OnAppearing()
+        {
+            await allPage.FadeTo(1, App.fadingTimeConst);
+            base.OnAppearing();
         }
     }
 }

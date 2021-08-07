@@ -37,3 +37,4 @@ C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\bin\Debug\netstand
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\bin\Debug\netstandard2.0\LOMGAxam.pdb
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\LOMGAxam.csprojAssemblyReference.cache
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\newTTTgameSettingsPage.xaml.g.cs

@@ -7,9 +7,12 @@ namespace LOMGAxam
 {
     public partial class App : Application
     {
+        public const int fadingTimeConst = 200;
+
         public static ChooseConnectScreen chooseConnectScreen = new ChooseConnectScreen();
         public static CreateGamePage createGamePage = new CreateGamePage();
         public static FastGameSettingsPage fastGameSettingsPage = new FastGameSettingsPage();
+        public static newTTTgameSettingsPage newTTTgameSettingsPage = new newTTTgameSettingsPage();
         public App()
         {
             InitializeComponent();
@@ -25,14 +28,17 @@ namespace LOMGAxam
             NavigationPage.SetHasNavigationBar(chooseConnectScreen, false);
             NavigationPage.SetHasNavigationBar(createGamePage, false);
             NavigationPage.SetHasNavigationBar(fastGameSettingsPage, false);
+            NavigationPage.SetHasNavigationBar(newTTTgameSettingsPage, false);
         }
 
         protected override void OnSleep()
         {
+
         }
 
         protected override void OnResume()
         {
+
         }
     }
 }

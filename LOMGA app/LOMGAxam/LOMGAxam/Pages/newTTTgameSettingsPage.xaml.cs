@@ -10,9 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace LOMGAxam.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CreateGamePage : ContentPage
+    public partial class newTTTgameSettingsPage : ContentPage
     {
-        public CreateGamePage()
+        bool passwordBool = false;
+
+        public newTTTgameSettingsPage()
         {
             InitializeComponent();
         }
@@ -22,13 +24,22 @@ namespace LOMGAxam.Pages
             await allPage.FadeTo(0, App.fadingTimeConst);
             await Navigation.PopAsync(false);
         }
-
-        async private void TTT_Button_Pressed(object sender, EventArgs e)
+        async private void CheckBox_TTT(object sender, EventArgs e)
         {
-            await allPage.FadeTo(0, App.fadingTimeConst);
-            await Navigation.PushAsync(App.newTTTgameSettingsPage, false);
+            passwordBool = !passwordBool;
+            if (passwordBool)
+            {
+                Password_Entry.IsEnabled = true;
+                await Password_tick.FadeTo(1, 150);
+                await Password_Entry.FadeTo(1, 150);
+            }
+            else
+            {
+                Password_Entry.IsEnabled = false;
+                await Password_tick.FadeTo(0, 150);
+                await Password_Entry.FadeTo(0, 150);
+            }
         }
-
         async protected override void OnAppearing()
         {
             await allPage.FadeTo(1, App.fadingTimeConst);

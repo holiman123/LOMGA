@@ -17,14 +17,22 @@ namespace LOMGAxam.Pages
             InitializeComponent();
         }
 
-        private void Back_Button_Pressed(object sender, EventArgs e)
+        async private void Back_Button_Pressed(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            await allPage.FadeTo(0, App.fadingTimeConst);
+            await Navigation.PopAsync(false);
         }
 
-        private void Button_FastStart_Pressed(object sender, EventArgs e)
+        async private void Button_FastStart_Pressed(object sender, EventArgs e)
         {
-            Navigation.PushAsync(App.fastGameSettingsPage);
+            await allPage.FadeTo(0, App.fadingTimeConst);
+            await Navigation.PushAsync(App.fastGameSettingsPage, false);
+        }
+
+        async protected override void OnAppearing()
+        {
+            await allPage.FadeTo(1, App.fadingTimeConst);
+            base.OnAppearing();
         }
     }
 }

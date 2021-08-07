@@ -18,9 +18,10 @@ namespace LOMGAxam.Pages
             InitializeComponent();
         }
 
-        private void Back_Button_Pressed(object sender, EventArgs e)
+        async private void Back_Button_Pressed(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            await allPage.FadeTo(0, App.fadingTimeConst);
+            await Navigation.PopAsync(false);
         }
 
         async private void CheckBox_TTT(object sender, EventArgs e)
@@ -30,6 +31,12 @@ namespace LOMGAxam.Pages
                 await TTT_tick.FadeTo(1, 150);
             else
                 await TTT_tick.FadeTo(0, 150);
+        }
+
+        async protected override void OnAppearing()
+        {
+            await allPage.FadeTo(1, App.fadingTimeConst);
+            base.OnAppearing();
         }
     }
 }
