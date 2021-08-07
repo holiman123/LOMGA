@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "7l3wGv/v/2yl72TikJSjsypRMW90oHknHCa4jAbE6F+BNNLOvyHlL8uFoJ0wWV+cWgpsOKI422mtQVSaZxDu2g==",
+  "dgSpecHash": "cdQ3th5XvugCvvrbEqgl0Ycow3GNdHl1TnOtTzhOpbC0pdHXR5db9IEe0jch6Hg7mOAHfyr1A/Wm03ADU4vdFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj",
+  "projectFilePath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luchi\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\luchi\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\luchi\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+    "C:\\Users\\luchi\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\luchi\\.nuget\\packages\\xamarin.forms\\5.0.0.2083\\xamarin.forms.5.0.0.2083.nupkg.sha512"
   ],
   "logs": []
 }

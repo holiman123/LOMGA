@@ -20,12 +20,12 @@ namespace LOMGAxam
 
         private void Button_Play_Pressed(object sender, EventArgs e)
         {
-            Navigation.PushAsync(App.chooseConnectScreen);
+            Navigation.PushAsync(App.chooseConnectScreen, true);
         }
 
         private void Button_CreateGame_Pressed(object sender, EventArgs e)
         {
-            Navigation.PushAsync(App.createGamePage);
+            Navigation.PushAsync(App.createGamePage, true);
         }
     }
 }

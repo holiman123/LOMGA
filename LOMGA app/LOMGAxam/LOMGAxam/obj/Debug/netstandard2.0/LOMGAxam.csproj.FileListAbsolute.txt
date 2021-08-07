@@ -20,3 +20,20 @@ C:\Users\luchi\source\repos\LOMGAxam\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\
 C:\Users\luchi\source\repos\LOMGAxam\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\ChooseConnectScreen.xaml.g.cs
 C:\Users\luchi\source\repos\LOMGAxam\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\CreateGamePage.xaml.g.cs
 C:\Users\luchi\source\repos\LOMGAxam\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\FastGameSettingsPage.xaml.g.cs
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\ChooseConnectScreen.xaml.g.cs
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\CreateGamePage.xaml.g.cs
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\FastGameSettingsPage.xaml.g.cs
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\StartPage.xaml.g.cs
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\LOMGAxam.AssemblyInfoInputs.cache
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\LOMGAxam.AssemblyInfo.cs
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\LOMGAxam.csproj.CoreCompileInputs.cache
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\LOMGAxam.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\ref\LOMGAxam.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\LOMGAxam.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\bin\Debug\netstandard2.0\LOMGAxam.deps.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\bin\Debug\netstandard2.0\LOMGAxam.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\bin\Debug\netstandard2.0\ref\LOMGAxam.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\bin\Debug\netstandard2.0\LOMGAxam.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\LOMGAxam.csprojAssemblyReference.cache

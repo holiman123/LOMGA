@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam.Android\\LOMGAxam.Android.csproj": {}
+    "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam.Android\\LOMGAxam.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam.Android\\LOMGAxam.Android.csproj": {
+    "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam.Android\\LOMGAxam.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam.Android\\LOMGAxam.Android.csproj",
+        "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam.Android\\LOMGAxam.Android.csproj",
         "projectName": "LOMGAxam.Android",
-        "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam.Android\\LOMGAxam.Android.csproj",
+        "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam.Android\\LOMGAxam.Android.csproj",
         "packagesPath": "C:\\Users\\luchi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam.Android\\obj\\",
+        "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid11.0": {
             "projectReferences": {
-              "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj": {
-                "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj"
+              "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj": {
+                "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj"
               }
             }
           }
@@ -54,14 +54,14 @@
         }
       }
     },
-    "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj": {
+    "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj",
+        "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj",
         "projectName": "LOMGAxam",
-        "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj",
+        "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj",
         "packagesPath": "C:\\Users\\luchi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam\\obj\\",
+        "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -102,11 +102,11 @@
             },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.6.1, )"
+              "version": "[1.7.0, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[5.0.0.2012, )"
+              "version": "[5.0.0.2083, )"
             }
           },
           "imports": [

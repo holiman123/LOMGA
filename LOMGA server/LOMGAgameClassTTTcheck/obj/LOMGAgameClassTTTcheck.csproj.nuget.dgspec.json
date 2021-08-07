@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj": {}
+    "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj": {
+    "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj",
+        "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj",
         "projectName": "LOMGAgameClassTTTcheck",
-        "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj",
+        "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj",
         "packagesPath": "C:\\Users\\luchi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClassTTTcheck\\obj\\",
+        "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClassTTTcheck\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -32,11 +32,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj": {
-                "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj"
+              "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClass\\LOMGAgameClass.csproj": {
+                "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClass\\LOMGAgameClass.csproj"
               },
-              "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAserver\\LOMGAserver.csproj": {
-                "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAserver\\LOMGAserver.csproj"
+              "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAserver\\LOMGAserver.csproj": {
+                "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAserver\\LOMGAserver.csproj"
               }
             }
           }
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj": {
+    "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClass\\LOMGAgameClass.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj",
+        "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClass\\LOMGAgameClass.csproj",
         "projectName": "LOMGAgameClass",
-        "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj",
+        "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClass\\LOMGAgameClass.csproj",
         "packagesPath": "C:\\Users\\luchi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\obj\\",
+        "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClass\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -127,14 +127,14 @@
         }
       }
     },
-    "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAserver\\LOMGAserver.csproj": {
+    "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAserver\\LOMGAserver.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAserver\\LOMGAserver.csproj",
+        "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAserver\\LOMGAserver.csproj",
         "projectName": "LOMGAserver",
-        "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAserver\\LOMGAserver.csproj",
+        "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAserver\\LOMGAserver.csproj",
         "packagesPath": "C:\\Users\\luchi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAserver\\obj\\",
+        "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAserver\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -155,8 +155,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj": {
-                "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj"
+              "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClass\\LOMGAgameClass.csproj": {
+                "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClass\\LOMGAgameClass.csproj"
               }
             }
           }

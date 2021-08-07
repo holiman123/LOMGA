@@ -72,11 +72,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LittleTests\\LittleTestsServer.csproj",
+      "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LittleTests\\LittleTestsServer.csproj",
       "projectName": "LittleTestsServer",
-      "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LittleTests\\LittleTestsServer.csproj",
+      "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LittleTests\\LittleTestsServer.csproj",
       "packagesPath": "C:\\Users\\luchi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LittleTests\\obj\\",
+      "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LittleTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -97,14 +97,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj": {
-              "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj"
+            "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj": {
+              "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClassTTTcheck\\LOMGAgameClassTTTcheck.csproj"
             },
-            "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj": {
-              "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAgameClass\\LOMGAgameClass.csproj"
+            "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClass\\LOMGAgameClass.csproj": {
+              "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAgameClass\\LOMGAgameClass.csproj"
             },
-            "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAserver\\LOMGAserver.csproj": {
-              "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LOMGAserver\\LOMGAserver.csproj"
+            "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAserver\\LOMGAserver.csproj": {
+              "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LOMGAserver\\LOMGAserver.csproj"
             }
           }
         }

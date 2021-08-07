@@ -975,8 +975,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012"
+          "Xamarin.Essentials": "1.7.0",
+          "Xamarin.Forms": "5.0.0.2083"
         },
         "compile": {
           "bin/placeholder/LOMGAxam.dll": {}
@@ -2148,11 +2148,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam.Android\\LOMGAxam.Android.csproj",
+      "projectUniqueName": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam.Android\\LOMGAxam.Android.csproj",
       "projectName": "LOMGAxam.Android",
-      "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam.Android\\LOMGAxam.Android.csproj",
+      "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam.Android\\LOMGAxam.Android.csproj",
       "packagesPath": "C:\\Users\\luchi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam.Android\\obj\\",
+      "outputPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2173,8 +2173,8 @@
       "frameworks": {
         "monoandroid11.0": {
           "projectReferences": {
-            "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj": {
-              "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGAxam\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj"
+            "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj": {
+              "projectPath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA app\\LOMGAxam\\LOMGAxam\\LOMGAxam.csproj"
             }
           }
         }
@@ -2194,5 +2194,27 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Обнаружено понижение версии пакета Xamarin.Essentials с 1.7.0 на 1.6.1. Чтобы выбрать другую версию, создайте ссылку на пакет напрямую из проекта. \r\n LOMGAxam.Android -> LOMGAxam -> Xamarin.Essentials (>= 1.7.0) \r\n LOMGAxam.Android -> Xamarin.Essentials (>= 1.6.1)",
+      "libraryId": "Xamarin.Essentials",
+      "targetGraphs": [
+        "MonoAndroid,Version=v11.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Обнаружено понижение версии пакета Xamarin.Forms с 5.0.0.2083 на 5.0.0.2012. Чтобы выбрать другую версию, создайте ссылку на пакет напрямую из проекта. \r\n LOMGAxam.Android -> LOMGAxam -> Xamarin.Forms (>= 5.0.0.2083) \r\n LOMGAxam.Android -> Xamarin.Forms (>= 5.0.0.2012)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "MonoAndroid,Version=v11.0"
+      ]
+    }
+  ]
 }

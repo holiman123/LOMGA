@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q/MgDLQskSCQ3I+QiQRdbIRL/wR3lv3NkTy6SbE5ZhnJw0xzi6NYwYcPQR+psp+1Th7aAy3Nzm3OKi2thyFAzg==",
+  "dgSpecHash": "wEXLtOlWh5Q8lVLK+acBfYNmmCdRhS10SOOZgQRAaq2ZVNBI5sYgWzfOHvAPlSp9DdlexJIK2+M9D0kSgcit+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\luchi\\source\\repos\\LOMGAgameClass\\LittleTests\\LittleTestsServer.csproj",
+  "projectFilePath": "C:\\Users\\luchi\\source\\repos\\LOMGA\\LOMGA server\\LittleTests\\LittleTestsServer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
