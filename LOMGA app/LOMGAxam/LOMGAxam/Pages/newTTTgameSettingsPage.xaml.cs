@@ -24,6 +24,15 @@ namespace LOMGAxam.Pages
             await allPage.FadeTo(0, App.fadingTimeConst);
             await Navigation.PopAsync(false);
         }
+        async private void Start_Button_Pressed(object sender, EventArgs e)
+        {
+            await allPage.FadeTo(0, App.fadingTimeConst);
+            await Navigation.PushAsync(App.waitingPage, false);
+
+            App.connectionThread = new System.Threading.Thread(unused => App.connectionThreadMethod("start,0", Navigation));
+            App.connectionThread.Start();
+        }
+
         async private void CheckBox_TTT(object sender, EventArgs e)
         {
             passwordBool = !passwordBool;
