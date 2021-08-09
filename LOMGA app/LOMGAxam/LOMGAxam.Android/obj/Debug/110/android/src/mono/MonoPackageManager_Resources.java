@@ -3,6 +3,7 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "LOMGAxam.Android.dll" comes first in this list. */
 		"LOMGAxam.Android.dll",
+		"LOMGAgameClass.dll",
 		"FormsViewGroup.dll",
 		"LOMGAxam.dll",
 		"Xamarin.AndroidX.Activity.dll",

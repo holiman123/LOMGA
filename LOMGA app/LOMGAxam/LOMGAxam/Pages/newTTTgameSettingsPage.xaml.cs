@@ -26,10 +26,11 @@ namespace LOMGAxam.Pages
         }
         async private void Start_Button_Pressed(object sender, EventArgs e)
         {
+            App.connectionThread = new System.Threading.Thread(unused => App.connectionThreadMethod("start,0", Navigation));
+
             await allPage.FadeTo(0, App.fadingTimeConst);
             await Navigation.PushAsync(App.waitingPage, false);
 
-            App.connectionThread = new System.Threading.Thread(unused => App.connectionThreadMethod("start,0", Navigation));
             App.connectionThread.Start();
         }
 

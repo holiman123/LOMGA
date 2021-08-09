@@ -1164,3 +1164,10 @@ C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\stamp\_GenerateJavaStubs.stamp
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\bin\Debug\LOMGAgameClass.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\bin\Debug\LOMGAgameClass.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\LOMGAgameClass.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\LOMGAgameClass.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.Diagnostics.Debug.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.Net.Sockets.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.Runtime.Extensions.dll

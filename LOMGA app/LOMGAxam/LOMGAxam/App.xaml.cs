@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using LOMGAgameClass;
+using Xamarin.Essentials;
 
 namespace LOMGAxam
 {
@@ -14,6 +15,10 @@ namespace LOMGAxam
     {
         public const int fadingTimeConst = 200;
         public static Thread connectionThread;
+        public static INavigation NavigationStatic;
+
+        public static NetworkStream stream;
+        public static Game currentGame;
 
         public static ChooseConnectScreen chooseConnectScreen = new ChooseConnectScreen();
         public static CreateGamePage createGamePage = new CreateGamePage();
@@ -29,6 +34,7 @@ namespace LOMGAxam
             NavigationPage.SetHasNavigationBar(startPage, false);
 
             MainPage = new NavigationPage(startPage);
+            NavigationStatic = MainPage.Navigation;
         }
 
         protected override void OnStart()
@@ -55,18 +61,22 @@ namespace LOMGAxam
         {
             if (modeStr.Split(',')[0] == "start")
             {
-                TcpClient client = new TcpClient("127.0.0.1", 2003);
-                NetworkStream stream = client.GetStream();
+                TcpClient client = new TcpClient("192.168.0.102", 2003);
+                stream = client.GetStream();
 
                 byte[] data = Encoding.Default.GetBytes(modeStr);
                 stream.Write(data, 0, data.Length);
 
                 data = new byte[1024];
                 stream.Read(data, 0, 1024);
-                Game recivedgame = (Game)MySerializer.deserialize(data);
+                currentGame = (Game)MySerializer.deserialize(data);
 
-                page.PushAsync(tttGamePage, false);
+                //NavigationStatic.PushAsync(tttGamePage, false);
 
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    NavigationStatic.PushAsync(tttGamePage, false); // TODO : switch statement for other games
+                });
             }
         }
     }
