@@ -6,6 +6,10 @@
       <size android:width="2dp"/>
       <!-- edit text cursor color red -->
       <solid android:color="@color/cursorcolor"/>
+      <padding android:top="0px"/>
+      <padding android:bottom="0px"/>
+      <padding android:left="0px"/>
+      <padding android:right="0px"/>
     </shape>
   </item>
 </selector>

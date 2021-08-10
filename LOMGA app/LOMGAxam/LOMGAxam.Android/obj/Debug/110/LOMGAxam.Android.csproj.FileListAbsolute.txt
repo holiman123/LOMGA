@@ -1171,3 +1171,5 @@ C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.Diagnostics.Debug.dll
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.Net.Sockets.dll
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.Runtime.Extensions.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\res\drawable\zero.png
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\res\drawable\cross.png

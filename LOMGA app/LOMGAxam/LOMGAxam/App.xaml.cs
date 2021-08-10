@@ -33,7 +33,7 @@ namespace LOMGAxam
             StartPage startPage = new StartPage();
             NavigationPage.SetHasNavigationBar(startPage, false);
 
-            MainPage = new NavigationPage(startPage);
+            MainPage = new NavigationPage(tttGamePage); // TEMP! startPage is current page to start!
             NavigationStatic = MainPage.Navigation;
         }
 
@@ -57,7 +57,12 @@ namespace LOMGAxam
 
         }
 
-        public static void connectionThreadMethod(string modeStr, INavigation page)
+        /// <summary>
+        /// Thread to operate connection to server
+        /// (start - start new game / list get list of games and connect ot them)
+        /// </summary>
+        /// <param name="modeStr">String that shows mode to start thread</param>
+        public static void connectionThreadMethod(string modeStr)
         {
             if (modeStr.Split(',')[0] == "start")
             {
@@ -70,8 +75,6 @@ namespace LOMGAxam
                 data = new byte[1024];
                 stream.Read(data, 0, 1024);
                 currentGame = (Game)MySerializer.deserialize(data);
-
-                //NavigationStatic.PushAsync(tttGamePage, false);
 
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
