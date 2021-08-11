@@ -5,6 +5,7 @@
     <ContentPage.Content>
         <AbsoluteLayout BackgroundColor="WhiteSmoke" x:Name="allPage" Opacity="0">
             <Label
+                x:Name="label"
                 Text="Your turn"
                 TextColor="#666"
                 FontSize="50"
@@ -20,6 +21,7 @@
                 >
             </Grid>
             <Button
+                x:Name="TurnButton"
                 BackgroundColor="#36954B"
                 CornerRadius="12"
                 Text="make turn"

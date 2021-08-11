@@ -25,7 +25,7 @@ namespace LOMGAxam
         public static FastGameSettingsPage fastGameSettingsPage = new FastGameSettingsPage();
         public static newTTTgameSettingsPage newTTTgameSettingsPage = new newTTTgameSettingsPage();
         public static WaitingPage waitingPage = new WaitingPage();
-        public static TTTgamePage tttGamePage = new TTTgamePage();
+        public static TTTgamePage tttGamePage;
         public App()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace LOMGAxam
             StartPage startPage = new StartPage();
             NavigationPage.SetHasNavigationBar(startPage, false);
 
-            MainPage = new NavigationPage(tttGamePage); // TEMP! startPage is current page to start!
+            MainPage = new NavigationPage(startPage); // TEMP! startPage is current page to start!
             NavigationStatic = MainPage.Navigation;
         }
 
@@ -44,7 +44,6 @@ namespace LOMGAxam
             NavigationPage.SetHasNavigationBar(fastGameSettingsPage, false);
             NavigationPage.SetHasNavigationBar(newTTTgameSettingsPage, false);
             NavigationPage.SetHasNavigationBar(waitingPage, false);
-            NavigationPage.SetHasNavigationBar(tttGamePage, false);
         }
 
         protected override void OnSleep()
@@ -76,10 +75,25 @@ namespace LOMGAxam
                 stream.Read(data, 0, 1024);
                 currentGame = (Game)MySerializer.deserialize(data);
 
+                App.tttGamePage = new TTTgamePage();
+                NavigationPage.SetHasNavigationBar(App.tttGamePage, false);
+
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
-                    NavigationStatic.PushAsync(tttGamePage, false); // TODO : switch statement for other games
+                    NavigationStatic.PushAsync(tttGamePage, false); // TODO : "switch" statement for other games
                 });
+
+                while (true)
+                {
+                    data = new byte[1024];
+                    stream.Read(data, 0, 1024);
+                    currentGame = (Game)MySerializer.deserialize(data);
+
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        tttGamePage.recive(); // TODO: "switch" statement for other games   
+                    });
+                }
             }
         }
     }
