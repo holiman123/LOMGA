@@ -17,7 +17,7 @@ namespace LOMGAserver
 
         static void Main(string[] args)
         {
-
+            // Server start
 
             TcpListener server = new TcpListener(System.Net.IPAddress.Any, 2003);
             server.Start();
@@ -78,26 +78,29 @@ namespace LOMGAserver
 
                     if (Encoding.Default.GetString(data).Split(',')[0] == "list")
                     {
+                        // create and send list of games:
+
                         Console.WriteLine("List request!");
-                        // create and send list of games
-                        byte[] buffer1;
+                        byte[] listBuffer;
                         for (int i = 0; i <= gamesList.Count; i++)
                         {
                             if (i != gamesList.Count)
                             {
                                 Console.WriteLine("debug");
-                                buffer1 = MySerializer.serialize(gamesList[i].gameExemplar);
+                                listBuffer = MySerializer.serialize(gamesList[i].gameExemplar);
                             }
                             else
                             {
-                                buffer1 = Encoding.Default.GetBytes("end.");
+                                listBuffer = Encoding.Default.GetBytes("end.");
                             }
-                            stream.Write(buffer1, 0, buffer1.Length);
+                            stream.Write(listBuffer, 0, listBuffer.Length);
                         }
                     }
 
                     if (Encoding.Default.GetString(data).Split(',')[0] == "choose")
                     {
+                        // choosing game from list:
+
                         // read choosen game
                         stream.Read(data, 0, data.Length);
                         Game readedGame = (Game)MySerializer.deserialize(data);
@@ -131,42 +134,20 @@ namespace LOMGAserver
                         hostTransmitThread.Start();
                         Thread clientTransmitThread = new Thread(unused => transmitMethod(gamesList[choosedGameIndex].clientStream, gamesList[choosedGameIndex].hostStream));
                         clientTransmitThread.Start();
-                        break;
 
-                        //======================================
-                        //Console.WriteLine("Transmit method started");
-                        //data = new byte[1024];
-                        //try
-                        //{
-                        //    //if (((GameClassTTT)game.gameExemplar).turnFlag)
-                        //    //{
-                        //    //    Console.WriteLine("waiting to change!");
-                        //    //    stream2.Read(data);
-                        //    //    Console.WriteLine("Game changing!");
-                        //    //    stream1.Write(data);
-                        //    //}
-                        //    while (true)
-                        //    {
-                        //        data = new byte[1024];
-                        //        Console.WriteLine("hostStream canRead:" + gamesList[choosedGameIndex].hostStream.CanRead);
-                        //        Console.WriteLine("waiting to change!");
-                        //        gamesList[choosedGameIndex].hostStream.Read(data, 0, 471);
-                        //        Console.WriteLine("clientStream canWrite:" + gamesList[choosedGameIndex].clientStream.CanWrite);
-                        //        Console.WriteLine("Game changing!");
-                        //        gamesList[choosedGameIndex].clientStream.Write(data, 0, 471);
-                        //        Console.WriteLine("clientStream canRead:" + gamesList[choosedGameIndex].clientStream.CanRead);
-                        //        Console.WriteLine("waiting to change!");
-                        //        gamesList[choosedGameIndex].clientStream.Read(data, 0, 471);
-                        //        Console.WriteLine("hostStream canWrite:" + gamesList[choosedGameIndex].hostStream.CanWrite);
-                        //        Console.WriteLine("Game changing!");
-                        //        gamesList[choosedGameIndex].hostStream.Write(data, 0, 471);
-                        //    }
-                        //}
-                        //catch (Exception e) { Console.WriteLine(e.Message); }
-                        //gamesList[choosedGameIndex].clientStream.Close();
-                        //gamesList[choosedGameIndex].hostStream.Close();
-                        //Console.WriteLine("both streams have been closed.");
-                        //======================================
+                        // Waiting threads to end ecouse of error or game end
+                        hostTransmitThread.Join();
+                        clientTransmitThread.Join();
+
+                        // clear streams
+                        gamesList[choosedGameIndex].hostStream.Close();
+                        gamesList[choosedGameIndex].clientStream.Close();
+
+                        // removing game from game list
+                        gamesList.RemoveAt(choosedGameIndex);
+
+                        Console.WriteLine("Game end! streams cleared, game removed from list.");
+                        break;
                     }
                 }
             }
@@ -179,31 +160,16 @@ namespace LOMGAserver
             try
             {
                 byte[] data = new byte[1024];
-                while (true)
+                while (stream2.CanWrite)
                 {
                     Console.WriteLine("waiting to change!");
                     data = new byte[472]; 
                     stream1.Read(data);
                     Console.WriteLine("Game changing!");
                     stream2.Write(data);
-                    //while (true)
-                    //{
-                    //    data = new byte[1024];
-                    //    Console.WriteLine("waiting to change! of " + stream1.CanRead);
-                    //    stream1.Read(data);
-                    //    Console.WriteLine("Game changing!");
-                    //    stream2.Write(data);
-                    //    Console.WriteLine("waiting to change!");
-                    //    stream2.Read(data);
-                    //    Console.WriteLine("Game changing!");
-                    //    stream1.Write(data);
-                    //}
                 }
             }
             catch (Exception e) { Console.WriteLine(e.Message); }
-            //game.clientStream.Close();
-            //game.hostStream.Close();
-            Console.WriteLine("both streams have been closed.");
         }
     }
 }
