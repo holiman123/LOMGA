@@ -26,17 +26,17 @@ namespace LOMGAxam.Pages
 
             while (animFlag)
             {
-                await Task.Delay(800);
+                await Task.Delay(500);
                 Dots.Text = "...";
-                await Task.Delay(800);
+                await Task.Delay(500);
                 Dots.Text = " ..";
-                await Task.Delay(800);
+                await Task.Delay(500);
                 Dots.Text = "  .";
-                await Task.Delay(800);
+                await Task.Delay(500);
                 Dots.Text = "   ";
-                await Task.Delay(800);
+                await Task.Delay(500);
                 Dots.Text = ".  ";
-                await Task.Delay(800);
+                await Task.Delay(500);
                 Dots.Text = ".. ";
             }
         }

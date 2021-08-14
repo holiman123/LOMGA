@@ -26,6 +26,15 @@ namespace LOMGAxam.Pages
 
         private void Turn_Button_Pressed(object sender, EventArgs e)
         {
+            // check are client connected to server
+            if (!App.stream.CanWrite)
+            {
+                App.stream.Close();
+                allPage.FadeTo(0, App.fadingTimeConst);
+                App.showErrorMessage("Lost connection with server");
+                return;
+            }
+
             // turn method calling
             if (turnX != -1 && turnY != -1)
             {

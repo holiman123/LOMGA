@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LOMGAxam.Pages.MessagePage">
+    <ContentPage.Content>
+        <AbsoluteLayout x:Name="allPage" Opacity="0" BackgroundColor="WhiteSmoke">
+            <Label
+                x:Name="label"
+                Text="default text"
+                FontSize="20"
+                TextColor="#666"
+                AbsoluteLayout.LayoutBounds="0.5, 0.35"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                />
+            <Button
+                Text="Go to start page"
+                CornerRadius="12"
+                BackgroundColor="#c4c4c4"
+                TextColor="#666"
+                FontSize="20"
+                AbsoluteLayout.LayoutBounds="0.5, 0.6, 0.75, 0.12"
+                AbsoluteLayout.LayoutFlags="All"
+                Pressed="Button_Pressed"
+                />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

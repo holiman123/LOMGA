@@ -33,7 +33,7 @@ namespace LOMGAxam
             StartPage startPage = new StartPage();
             NavigationPage.SetHasNavigationBar(startPage, false);
 
-            MainPage = new NavigationPage(startPage); // TEMP! startPage is current page to start!
+            MainPage = new NavigationPage(startPage);
             NavigationStatic = MainPage.Navigation;
         }
 
@@ -65,36 +65,55 @@ namespace LOMGAxam
         {
             if (modeStr.Split(',')[0] == "start")
             {
-                TcpClient client = new TcpClient("192.168.0.102", 2003);
-                stream = client.GetStream();
-
-                byte[] data = Encoding.Default.GetBytes(modeStr);
-                stream.Write(data, 0, data.Length);
-
-                data = new byte[1024];
-                stream.Read(data, 0, 1024);
-                currentGame = (Game)MySerializer.deserialize(data);
-
-                App.tttGamePage = new TTTgamePage();
-                NavigationPage.SetHasNavigationBar(App.tttGamePage, false);
-
-                MainThread.BeginInvokeOnMainThread(() =>
+                try
                 {
-                    NavigationStatic.PushAsync(tttGamePage, false); // TODO : "switch" statement for other games
-                });
+                    TcpClient client = new TcpClient("192.168.0.102", 2003);
+                    stream = client.GetStream();
 
-                while (true)
-                {
+                    byte[] data = Encoding.Default.GetBytes(modeStr);
+                    stream.Write(data, 0, data.Length);
+
                     data = new byte[1024];
                     stream.Read(data, 0, 1024);
                     currentGame = (Game)MySerializer.deserialize(data);
 
+                    App.tttGamePage = new TTTgamePage();
+                    NavigationPage.SetHasNavigationBar(App.tttGamePage, false);
+
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
-                        tttGamePage.recive(); // TODO: "switch" statement for other games   
+                        NavigationStatic.PushAsync(tttGamePage, false); // TODO : "switch" statement for other games
                     });
+
+                    while (stream.CanWrite)
+                    {
+                        data = new byte[1024];
+                        stream.Read(data, 0, 1024);
+                        currentGame = (Game)MySerializer.deserialize(data);
+
+                        MainThread.BeginInvokeOnMainThread(() =>
+                        {
+                            tttGamePage.recive(); // TODO: "switch" statement for other games   
+                        });
+                    }
+
+                    stream.Close();
+                    client.Close();
+
                 }
+                catch (Exception e) { App.showErrorMessage("Lost connection with server"); }
             }
+        }
+
+        public static void showErrorMessage(string errorString)
+        {
+            MessagePage messagePage = new MessagePage(errorString);
+            NavigationPage.SetHasNavigationBar(messagePage, false);
+
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                NavigationStatic.PushAsync(messagePage, false);
+            });
         }
     }
 }
