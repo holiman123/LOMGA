@@ -20,3 +20,25 @@ C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\obj\Debug\netc
 C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.dll
 C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.pdb
 C:\Users\luchi\source\repos\LOMGAgameClass\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.genruntimeconfig.cache
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAserver.deps.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAserver.runtimeconfig.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAserver.runtimeconfig.dev.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAserver.exe
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.exe
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.deps.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.runtimeconfig.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.runtimeconfig.dev.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAgameClass.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAserver.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAgameClass.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\bin\Debug\netcoreapp3.1\LOMGAserver.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.csprojAssemblyReference.cache
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.AssemblyInfoInputs.cache
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.AssemblyInfo.cs
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.csproj.CoreCompileInputs.cache
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.csproj.CopyComplete
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAgameClassTTTcheck\obj\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.genruntimeconfig.cache

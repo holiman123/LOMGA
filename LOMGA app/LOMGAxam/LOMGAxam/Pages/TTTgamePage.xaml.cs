@@ -27,9 +27,10 @@ namespace LOMGAxam.Pages
         private void Turn_Button_Pressed(object sender, EventArgs e)
         {
             // check are client connected to server
-            if (!App.stream.CanWrite)
+            if (!App.client.Connected)
             {
                 App.stream.Close();
+                App.client.Close();
                 allPage.FadeTo(0, App.fadingTimeConst);
                 App.showErrorMessage("Lost connection with server");
                 return;
@@ -54,14 +55,14 @@ namespace LOMGAxam.Pages
 
         public void recive()
         {
-            label.Text = "Your turn";
-            Field.IsEnabled = true;
+                label.Text = "Your turn";
+                Field.IsEnabled = true;
 
-            for (int i = 0; i < ((GameClassTTT)App.currentGame).rowSize; i++)
-                for (int j = 0; j < ((GameClassTTT)App.currentGame).columnSize; j++)
-                    localField[i, j] = ((GameClassTTT)App.currentGame).field[j, i];
+                for (int i = 0; i < ((GameClassTTT)App.currentGame).rowSize; i++)
+                    for (int j = 0; j < ((GameClassTTT)App.currentGame).columnSize; j++)
+                        localField[i, j] = ((GameClassTTT)App.currentGame).field[j, i];
 
-            drawLocalField();
+                drawLocalField();
         }
 
         protected override void OnAppearing()

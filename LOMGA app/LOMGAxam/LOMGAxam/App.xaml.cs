@@ -17,6 +17,7 @@ namespace LOMGAxam
         public static Thread connectionThread;
         public static INavigation NavigationStatic;
 
+        public static TcpClient client = new TcpClient();
         public static NetworkStream stream;
         public static Game currentGame;
 
@@ -67,7 +68,8 @@ namespace LOMGAxam
             {
                 try
                 {
-                    TcpClient client = new TcpClient("192.168.0.102", 2003);
+                    client = new TcpClient();
+                    client.Connect(IPAddress.Parse("192.168.0.102"), 2003);
                     stream = client.GetStream();
 
                     byte[] data = Encoding.Default.GetBytes(modeStr);
@@ -85,23 +87,35 @@ namespace LOMGAxam
                         NavigationStatic.PushAsync(tttGamePage, false); // TODO : "switch" statement for other games
                     });
 
-                    while (stream.CanWrite)
+                    while (client.Connected)
                     {
                         data = new byte[1024];
                         stream.Read(data, 0, 1024);
                         currentGame = (Game)MySerializer.deserialize(data);
 
-                        MainThread.BeginInvokeOnMainThread(() =>
+                        if (!(currentGame is null))
                         {
-                            tttGamePage.recive(); // TODO: "switch" statement for other games   
-                        });
+                            MainThread.BeginInvokeOnMainThread(() =>
+                            {
+                                tttGamePage.recive(); // TODO: "switch" statement for other games
+                            });
+                        }
+                        else
+                            break;
                     }
 
                     stream.Close();
                     client.Close();
 
+                    showErrorMessage("Lost connection with opponent");
+
                 }
-                catch (Exception e) { App.showErrorMessage("Lost connection with server"); }
+                catch (Exception e)
+                {
+                    stream.Close();
+                    client.Close();
+                    showErrorMessage("Problem with connection"); 
+                }
             }
         }
 

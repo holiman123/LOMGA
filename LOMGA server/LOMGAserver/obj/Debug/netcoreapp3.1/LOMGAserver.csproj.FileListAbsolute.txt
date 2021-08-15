@@ -22,7 +22,6 @@ C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\bin\Debug\netcoreapp3
 C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\bin\Debug\netcoreapp3.1\LOMGAserver.pdb
 C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\bin\Debug\netcoreapp3.1\LOMGAgameClass.dll
 C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\bin\Debug\netcoreapp3.1\LOMGAgameClass.pdb
-C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.csprojAssemblyReference.cache
 C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.AssemblyInfoInputs.cache
 C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.AssemblyInfo.cs
 C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.csproj.CoreCompileInputs.cache
@@ -30,3 +29,4 @@ C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\obj\Debug\netcoreapp3
 C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.dll
 C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.pdb
 C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.genruntimeconfig.cache
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LOMGAserver\obj\Debug\netcoreapp3.1\LOMGAserver.csprojAssemblyReference.cache

@@ -35,26 +35,30 @@ namespace LOMGAgameClassTTTcheck
             byte[] data;
             while(true)
             {
-                // get opponent turn
-                data = new byte[1024];
-                Console.WriteLine("Wait untill opponent make turn...");
-                stream.Read(data, 0, 472);
-                game = (Game)MySerializer.deserialize(data);
+                try
+                {
+                    // get opponent turn
+                    data = new byte[1024];
+                    Console.WriteLine("Wait untill opponent make turn...");
+                    stream.Read(data, 0, 1024);
+                    game = (Game)MySerializer.deserialize(data);
 
-                // show field
-                Console.WriteLine("{0} {1} {2}", ((GameClassTTT)game).field[0, 0], ((GameClassTTT)game).field[0, 1], ((GameClassTTT)game).field[0, 2]);
-                Console.WriteLine("{0} {1} {2}", ((GameClassTTT)game).field[1, 0], ((GameClassTTT)game).field[1, 1], ((GameClassTTT)game).field[1, 2]);
-                Console.WriteLine("{0} {1} {2}", ((GameClassTTT)game).field[2, 0], ((GameClassTTT)game).field[2, 1], ((GameClassTTT)game).field[2, 2]);
+                    // show field
+                    Console.WriteLine("{0} {1} {2}", ((GameClassTTT)game).field[0, 0], ((GameClassTTT)game).field[0, 1], ((GameClassTTT)game).field[0, 2]);
+                    Console.WriteLine("{0} {1} {2}", ((GameClassTTT)game).field[1, 0], ((GameClassTTT)game).field[1, 1], ((GameClassTTT)game).field[1, 2]);
+                    Console.WriteLine("{0} {1} {2}", ((GameClassTTT)game).field[2, 0], ((GameClassTTT)game).field[2, 1], ((GameClassTTT)game).field[2, 2]);
 
-                // turning
-                Console.WriteLine("make your turn");
-                string turnString = Console.ReadLine();
+                    // turning
+                    Console.WriteLine("make your turn");
+                    string turnString = Console.ReadLine();
 
-                // send new turn
-                ((GameClassTTT)game).turn(Convert.ToInt32(turnString.Split(' ')[0]), Convert.ToInt32(turnString.Split(' ')[1]));
-                turnData = MySerializer.serialize(game);
-                stream.Write(turnData, 0, turnData.Length);
-                Console.WriteLine("new turn sended " + MySerializer.serialize(game).Length);
+                    // send new turn
+                    ((GameClassTTT)game).turn(Convert.ToInt32(turnString.Split(' ')[0]), Convert.ToInt32(turnString.Split(' ')[1]));
+                    turnData = MySerializer.serialize(game);
+                    stream.Write(turnData, 0, turnData.Length);
+                    Console.WriteLine("new turn sended " + MySerializer.serialize(game).Length);
+                }
+                catch (Exception e) { Console.WriteLine(e.Message); Console.ReadKey(); }
             }
         }
 

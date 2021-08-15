@@ -26,3 +26,31 @@ C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\obj\Debug\netcoreapp3.1\L
 C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\obj\Debug\netcoreapp3.1\LittleTestsServer.dll
 C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\obj\Debug\netcoreapp3.1\LittleTestsServer.pdb
 C:\Users\luchi\source\repos\LOMGAgameClass\LittleTests\obj\Debug\netcoreapp3.1\LittleTestsServer.genruntimeconfig.cache
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.deps.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.runtimeconfig.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.runtimeconfig.dev.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAserver.deps.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAserver.runtimeconfig.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAserver.runtimeconfig.dev.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAserver.exe
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.exe
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LittleTestsServer.exe
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LittleTestsServer.deps.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LittleTestsServer.runtimeconfig.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LittleTestsServer.runtimeconfig.dev.json
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LittleTestsServer.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LittleTestsServer.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClass.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAserver.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClassTTTcheck.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAgameClass.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\bin\Debug\netcoreapp3.1\LOMGAserver.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\obj\Debug\netcoreapp3.1\LittleTestsServer.csprojAssemblyReference.cache
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\obj\Debug\netcoreapp3.1\LittleTestsServer.AssemblyInfoInputs.cache
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\obj\Debug\netcoreapp3.1\LittleTestsServer.AssemblyInfo.cs
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\obj\Debug\netcoreapp3.1\LittleTestsServer.csproj.CoreCompileInputs.cache
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\obj\Debug\netcoreapp3.1\LittleTestsServer.csproj.CopyComplete
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\obj\Debug\netcoreapp3.1\LittleTestsServer.dll
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\obj\Debug\netcoreapp3.1\LittleTestsServer.pdb
+C:\Users\luchi\source\repos\LOMGA\LOMGA server\LittleTests\obj\Debug\netcoreapp3.1\LittleTestsServer.genruntimeconfig.cache

@@ -24,25 +24,23 @@ namespace LOMGAserver
             Console.WriteLine("Server started...");
 
             TcpClient clientBuffer;
-            NetworkStream streamBuffer;
             Thread threadBuffer;
             while (true)
             {
                 clientBuffer = server.AcceptTcpClient();
                 Console.WriteLine("client connected");
-                streamBuffer = clientBuffer.GetStream();
 
-                threadBuffer = new Thread(unused => connection(streamBuffer));
+                threadBuffer = new Thread(unused => connection(clientBuffer));
                 threadBuffer.Start();
             }
         }
 
-        public static void connection(NetworkStream stream)
+        public static void connection(TcpClient client)
         {
             try
             {
                 Console.WriteLine("connection thread started:");
-                NetworkStream firstStream = (NetworkStream)stream;
+                NetworkStream stream = client.GetStream();
 
                 while (true)
                 {
@@ -61,6 +59,7 @@ namespace LOMGAserver
                             case 0:   // TTT game
                                 GameClassTTT tempTTTGameClass = new GameClassTTT();
                                 onlineGame = new OnlineGame();
+                                onlineGame.hostClient = client;
                                 onlineGame.hostStream = stream;
                                 onlineGame.gameExemplar = tempTTTGameClass;
                                 break;
@@ -116,6 +115,7 @@ namespace LOMGAserver
 
                         // change choosen game parametrs (set client stream) and send it to both of players. (with ready to play flag)
                         gamesList[choosedGameIndex].clientStream = stream;
+                        gamesList[choosedGameIndex].clientClient = client;
                         gamesList[choosedGameIndex].gameExemplar.isGameready = true;
                         gamesList[choosedGameIndex].gameExemplar.isStarted = true;
 
@@ -130,23 +130,25 @@ namespace LOMGAserver
                         gamesList[choosedGameIndex].hostStream.Write(buffer, 0, buffer.Length);
 
                         //start endless cycle to send/read new changed game
-                        Thread hostTransmitThread = new Thread(unused => transmitMethod(gamesList[choosedGameIndex].hostStream, gamesList[choosedGameIndex].clientStream));
+                        Thread hostTransmitThread = new Thread(unused => transmitMethod(gamesList[choosedGameIndex].hostStream, gamesList[choosedGameIndex].clientStream, gamesList[choosedGameIndex].hostClient));
                         hostTransmitThread.Start();
-                        Thread clientTransmitThread = new Thread(unused => transmitMethod(gamesList[choosedGameIndex].clientStream, gamesList[choosedGameIndex].hostStream));
+                        Thread clientTransmitThread = new Thread(unused => transmitMethod(gamesList[choosedGameIndex].clientStream, gamesList[choosedGameIndex].hostStream, gamesList[choosedGameIndex].clientClient));
                         clientTransmitThread.Start();
 
-                        // Waiting threads to end ecouse of error or game end
+                        // Waiting threads to end becouse of error or game end
                         hostTransmitThread.Join();
                         clientTransmitThread.Join();
 
                         // clear streams
                         gamesList[choosedGameIndex].hostStream.Close();
                         gamesList[choosedGameIndex].clientStream.Close();
+                        gamesList[choosedGameIndex].hostClient.Close();
+                        gamesList[choosedGameIndex].clientClient.Close();
 
                         // removing game from game list
                         gamesList.RemoveAt(choosedGameIndex);
 
-                        Console.WriteLine("Game end! streams cleared, game removed from list.");
+                        Console.WriteLine("Game end! Streams cleared, game removed from list.");
                         break;
                     }
                 }
@@ -154,22 +156,32 @@ namespace LOMGAserver
             catch (Exception e) { Console.WriteLine(e.Message); }
         }
 
-        static void transmitMethod(NetworkStream stream1, NetworkStream stream2)
+        static void transmitMethod(NetworkStream stream1, NetworkStream stream2, TcpClient client)
         {
             Console.WriteLine("Transmit method started");
             try
             {
                 byte[] data = new byte[1024];
-                while (stream2.CanWrite)
+                while (client.Connected)
                 {
                     Console.WriteLine("waiting to change!");
-                    data = new byte[472]; 
+                    data = new byte[1024]; 
                     stream1.Read(data);
+
+                    if ((Game)MySerializer.deserialize(data) is null)
+                        throw new Exception();
+
                     Console.WriteLine("Game changing!");
                     stream2.Write(data);
                 }
             }
-            catch (Exception e) { Console.WriteLine(e.Message); }
+            catch (Exception e) 
+            { 
+                Console.WriteLine(e.Message);
+                stream1.Close();
+                stream2.Close();
+                client.Close();
+            }
         }
     }
 }
