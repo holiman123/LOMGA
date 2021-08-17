@@ -20,9 +20,13 @@
                 TextColor="#666"
                 Text="NickName?"
                 AbsoluteLayout.LayoutBounds="0.5,0.35"
-                AbsoluteLayout.LayoutFlags="PositionProportional"                
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                TextChanged="MyEntry_TextChanged"
+                MaxLength="16"
                 />
             <Button
+                x:Name="PlayButton"
+                Opacity="0"
                 Text="Play"
                 TextColor="#666666"
                 FontSize="28"
@@ -35,6 +39,8 @@
                 Pressed="Button_Play_Pressed"
                 />
             <Button
+                x:Name="CreateGameButton"
+                Opacity="0"
                 CornerRadius="12"
                 HeightRequest="55"
                 WidthRequest="250"

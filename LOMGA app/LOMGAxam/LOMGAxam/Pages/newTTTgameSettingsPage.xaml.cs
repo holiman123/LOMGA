@@ -26,12 +26,17 @@ namespace LOMGAxam.Pages
         }
         async private void Start_Button_Pressed(object sender, EventArgs e)
         {
-            App.connectionThread = new System.Threading.Thread(unused => App.connectionThreadMethod("start,0"));
+            if (App.nickname != null)
+            {
+                App.connectionThread = new System.Threading.Thread(unused => App.connectionThreadMethod("start,0"));
 
-            await allPage.FadeTo(0, App.fadingTimeConst);
-            await Navigation.PushAsync(App.waitingPage, false);
+                await allPage.FadeTo(0, App.fadingTimeConst);
+                await Navigation.PushAsync(App.waitingPage, false);
 
-            App.connectionThread.Start();
+                App.connectionThread.Start();
+            }
+            else
+                App.showErrorMessage("Nickname hasn't set!");
         }
 
         async private void CheckBox_TTT(object sender, EventArgs e)

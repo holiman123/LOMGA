@@ -35,5 +35,21 @@ namespace LOMGAxam
             await allPage.FadeTo(1, App.fadingTimeConst);
             base.OnAppearing();
         }
+
+        private void MyEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            App.nickname = ((MyEntry)sender).Text;
+
+            if (((MyEntry)sender).Text != "")
+            {
+                CreateGameButton.FadeTo(1, 250);
+                PlayButton.FadeTo(1, 250);
+            }
+            else
+            {
+                CreateGameButton.FadeTo(0, 250);
+                PlayButton.FadeTo(0, 250);
+            }
+        }
     }
 }

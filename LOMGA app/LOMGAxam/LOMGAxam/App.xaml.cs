@@ -13,6 +13,7 @@ namespace LOMGAxam
 {
     public partial class App : Application
     {
+        public static string nickname;
         public const int fadingTimeConst = 200;
         public static Thread connectionThread;
         public static INavigation NavigationStatic;

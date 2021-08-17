@@ -14,16 +14,25 @@ namespace LOMGAxam.Pages
     public class StringFromGame
     {
         public string type { get; set; }
+        public string hostNickname { get; set; }
 
-        public StringFromGame(string type)
+        public StringFromGame(string type, string hostNickname)
         {
             this.type = type;
+            this.hostNickname = hostNickname;
         }
     }
+
+
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListPage : ContentPage
     {
+        static bool showTTT = true;
+        static bool showSB = true;
+        static bool showWithPassword = true;
+        static bool showWithoutPassword = true;
+
         public static List<Game> recivedGames = new List<Game>();
         public ObservableCollection<StringFromGame> stringsFromGames { get; set; }
 
@@ -38,10 +47,16 @@ namespace LOMGAxam.Pages
             this.BindingContext = this;
         }
 
-        async private void Back_Button_Pressed(object sender, EventArgs e)
+        protected override bool OnBackButtonPressed()
         {
-            await allPage.FadeTo(0, App.fadingTimeConst);
-            await Navigation.PopAsync(false);
+            allPage.FadeTo(0, App.fadingTimeConst);
+            Navigation.PopAsync(false);
+            return true;
+        }
+
+        private void Back_Button_Pressed(object sender, EventArgs e)
+        {
+            OnBackButtonPressed();
         }
 
         async protected override void OnAppearing()
@@ -52,7 +67,10 @@ namespace LOMGAxam.Pages
 
         private void list_Refreshing(object sender, EventArgs e)
         {
-            recivedGames.Add(new Game());   // Getting list from server
+            Game testGame = new Game();
+            testGame.accounts.Add(new Account("jopajopajopajopa"));
+            recivedGames.Add(testGame);   // Getting list from server
+            recivedGames.Add(testGame);   // Getting list from server
 
             stringsFromGames.Clear();
 
@@ -61,11 +79,21 @@ namespace LOMGAxam.Pages
                 switch (game.gameType)
                 {
                     case 0:
-                    stringsFromGames.Add(new StringFromGame("TTT"));
+                    stringsFromGames.Add(new StringFromGame("TTT", game.accounts[0].nickname));
                         break;
                 }
             }
             list.IsRefreshing = false;
+        }
+
+        private void list_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            StartButton.FadeTo(1, App.fadingTimeConst);
+        }
+
+        private void GameTypeFilterButton_Pressed(object sender, EventArgs e)
+        {
+            // Go to filter page
         }
     }
 }

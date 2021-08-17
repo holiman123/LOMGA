@@ -13,33 +13,54 @@
                 AbsoluteLayout.LayoutFlags="All"
                 />
             <Button
+                x:Name="GameTypeFilterButton"
                 Text="Game type"
                 TextColor="#666"
+                BackgroundColor="#c4c4c4"
                 CornerRadius="8"
                 AbsoluteLayout.LayoutBounds="0.45, 0.04, 0.3, 0.08"
                 AbsoluteLayout.LayoutFlags="All"
+                Pressed="GameTypeFilterButton_Pressed"
                 />
             <Button
+                x:Name="nicknameFilterButton"
                 Text="Nickname"
                 TextColor="#666"
+                BackgroundColor="#c4c4c4"
                 CornerRadius="8"
                 AbsoluteLayout.LayoutBounds="0.95, 0.04, 0.3, 0.08"
                 AbsoluteLayout.LayoutFlags="All"
                 />
             <Button
+                x:Name="PasswordFilterButton"
                 Text="Password"
                 TextColor="#666"
+                BackgroundColor="#c4c4c4"
                 CornerRadius="8"
                 AbsoluteLayout.LayoutBounds="0.95, 0.155, 0.3, 0.08"
                 AbsoluteLayout.LayoutFlags="All"
                 />
             <Button
+                x:Name="CountFilterButton"
                 Text="Players count"
                 TextColor="#666"
+                BackgroundColor="#c4c4c4"
                 CornerRadius="8"
                 FontSize="11"
                 AbsoluteLayout.LayoutBounds="0.45, 0.155, 0.3, 0.08"
                 AbsoluteLayout.LayoutFlags="All"
+                />
+
+            <Button
+                x:Name="StartButton"
+                Text="Start"
+                TextColor="WhiteSmoke"
+                BackgroundColor="#36954B"
+                CornerRadius="12"
+                FontSize="11"
+                AbsoluteLayout.LayoutBounds="0.2, 0.981, 0.7, 0.1"
+                AbsoluteLayout.LayoutFlags="All"
+                Opacity="0"
                 />
 
             <ListView
@@ -49,8 +70,10 @@
                 AbsoluteLayout.LayoutFlags="All"
                 Refreshing="list_Refreshing"
                 ItemsSource="{Binding stringsFromGames}"
-                HasUnevenRows="True"
+                HasUnevenRows="False"
                 IsPullToRefreshEnabled="True"
+                SeparatorColor="Transparent"
+                ItemTapped="list_ItemTapped"                
                 >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -60,10 +83,19 @@
                                     <Label 
                                         Text="{Binding type}"
                                         TextColor="#666"
-                                        FontSize="28"
+                                        FontSize="24"
                                         HorizontalTextAlignment="Center"
                                         VerticalTextAlignment="Center"
-                                        AbsoluteLayout.LayoutBounds="0.6, 0.5, 0.3, 1"
+                                        AbsoluteLayout.LayoutBounds="0.65, 0.5, 0.3, 1"
+                                        AbsoluteLayout.LayoutFlags="All"
+                                        />
+                                    <Label 
+                                        Text="{Binding hostNickname}"
+                                        TextColor="#666"
+                                        FontSize="24"
+                                        HorizontalTextAlignment="Start"
+                                        VerticalTextAlignment="Center"
+                                        AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.7, 1"
                                         AbsoluteLayout.LayoutFlags="All"
                                         />
                                 </AbsoluteLayout>
@@ -72,6 +104,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
             <ImageButton
                 HeightRequest="50"
                 WidthRequest="50"
