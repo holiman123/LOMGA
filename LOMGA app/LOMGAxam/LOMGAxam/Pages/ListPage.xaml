@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LOMGAxam.Pages.ListPage">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="WhiteSmoke" x:Name="allPage" Opacity="0">
+            <Label
+                Text="filters:"
+                FontSize="26"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                AbsoluteLayout.LayoutBounds="0.04, 0.02, 0.25, 0.07"
+                AbsoluteLayout.LayoutFlags="All"
+                />
+            <Button
+                Text="Game type"
+                TextColor="#666"
+                CornerRadius="8"
+                AbsoluteLayout.LayoutBounds="0.45, 0.04, 0.3, 0.08"
+                AbsoluteLayout.LayoutFlags="All"
+                />
+            <Button
+                Text="Nickname"
+                TextColor="#666"
+                CornerRadius="8"
+                AbsoluteLayout.LayoutBounds="0.95, 0.04, 0.3, 0.08"
+                AbsoluteLayout.LayoutFlags="All"
+                />
+            <Button
+                Text="Password"
+                TextColor="#666"
+                CornerRadius="8"
+                AbsoluteLayout.LayoutBounds="0.95, 0.155, 0.3, 0.08"
+                AbsoluteLayout.LayoutFlags="All"
+                />
+            <Button
+                Text="Players count"
+                TextColor="#666"
+                CornerRadius="8"
+                FontSize="11"
+                AbsoluteLayout.LayoutBounds="0.45, 0.155, 0.3, 0.08"
+                AbsoluteLayout.LayoutFlags="All"
+                />
+
+            <ListView
+                x:Name="list"
+                BackgroundColor="#DCDCDC"
+                AbsoluteLayout.LayoutBounds="0.5, 0.65, 1, 0.62"
+                AbsoluteLayout.LayoutFlags="All"
+                Refreshing="list_Refreshing"
+                ItemsSource="{Binding stringsFromGames}"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <AbsoluteLayout>
+                                    <Label 
+                                        Text="{Binding type}"
+                                        TextColor="#666"
+                                        FontSize="28"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center"
+                                        AbsoluteLayout.LayoutBounds="0.6, 0.5, 0.3, 1"
+                                        AbsoluteLayout.LayoutFlags="All"
+                                        />
+                                </AbsoluteLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ImageButton
+                HeightRequest="50"
+                WidthRequest="50"
+                Source="arrowBack.png"
+                BackgroundColor="Transparent"
+                AbsoluteLayout.LayoutBounds="0.95, 0.98"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Pressed="Back_Button_Pressed"
+                />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

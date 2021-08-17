@@ -27,6 +27,7 @@ namespace LOMGAxam
         public static newTTTgameSettingsPage newTTTgameSettingsPage = new newTTTgameSettingsPage();
         public static WaitingPage waitingPage = new WaitingPage();
         public static TTTgamePage tttGamePage;
+        public static ListPage listPage = new ListPage();
         public App()
         {
             InitializeComponent();
@@ -45,6 +46,7 @@ namespace LOMGAxam
             NavigationPage.SetHasNavigationBar(fastGameSettingsPage, false);
             NavigationPage.SetHasNavigationBar(newTTTgameSettingsPage, false);
             NavigationPage.SetHasNavigationBar(waitingPage, false);
+            NavigationPage.SetHasNavigationBar(listPage, false);
         }
 
         protected override void OnSleep()

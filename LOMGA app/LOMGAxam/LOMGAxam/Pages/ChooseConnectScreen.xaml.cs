@@ -17,6 +17,12 @@ namespace LOMGAxam.Pages
             InitializeComponent();
         }
 
+        private void ServerBrowse_Button_Pressed(object sender, EventArgs e)
+        {
+            allPage.FadeTo(0, App.fadingTimeConst);
+            Navigation.PushAsync(App.listPage, false);
+        }
+
         async private void Back_Button_Pressed(object sender, EventArgs e)
         {
             await allPage.FadeTo(0, App.fadingTimeConst);

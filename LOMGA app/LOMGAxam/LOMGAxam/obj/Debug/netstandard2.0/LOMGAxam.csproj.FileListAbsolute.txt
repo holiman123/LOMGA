@@ -44,3 +44,4 @@ C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\bin\Debug\netstand
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\TTTgamePage.xaml.g.cs
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\LOMGAxam.csproj.CopyComplete
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\MessagePage.xaml.g.cs
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\ListPage.xaml.g.cs
