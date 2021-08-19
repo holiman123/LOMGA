@@ -84,18 +84,15 @@ namespace LOMGAserver
 
                         Console.WriteLine("List request!");
                         byte[] listBuffer;
-                        for (int i = 0; i <= gamesList.Count; i++)
+                        for (int i = 0; i < gamesList.Count; i++)
                         {
-                            if (i != gamesList.Count)
-                            {
-                                listBuffer = MySerializer.serialize(gamesList[i].gameExemplar);
-                            }
-                            else
-                            {
-                                listBuffer = Encoding.Default.GetBytes("end.");
-                            }
+                            listBuffer = MySerializer.serialize(gamesList[i].gameExemplar);
                             stream.Write(listBuffer, 0, listBuffer.Length);
+                            stream.Read(data, 0, 1);
                         }
+
+                        listBuffer = Encoding.Default.GetBytes("end.");
+                        stream.Write(listBuffer, 0, listBuffer.Length);
                     }
 
                     if (Encoding.Default.GetString(data).Split(',')[0] == "choose")
@@ -110,7 +107,10 @@ namespace LOMGAserver
                         foreach (OnlineGame g in gamesList)
                         {
                             if (g.gameExemplar == readedGame)
+                            {
                                 choosedGameIndex = g.gameExemplar.gameIndex;
+                                g.gameExemplar = readedGame;
+                            }
                         }
                         Console.WriteLine("choosed game with {0} index", choosedGameIndex);
                         Console.WriteLine("list of games count:" + gamesList.Count);

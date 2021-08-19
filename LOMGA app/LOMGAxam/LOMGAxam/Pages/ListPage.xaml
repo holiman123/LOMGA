@@ -61,6 +61,8 @@
                 AbsoluteLayout.LayoutBounds="0.2, 0.981, 0.7, 0.1"
                 AbsoluteLayout.LayoutFlags="All"
                 Opacity="0"
+                IsEnabled="False"
+                Pressed="StartButton_Pressed"
                 />
 
             <ListView

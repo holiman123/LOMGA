@@ -149,9 +149,58 @@ namespace LOMGAxam
                             break;
 
                         ListPage.recivedGames.Add((Game)MySerializer.deserialize(data));
+                        stream.Write(new byte[] { 0 }, 0, 1);
                     }
                 }
                 catch (Exception) { }
+            }
+
+            if (modeStr.Split(',')[0] == "choose")
+            {
+                if (ListPage.choosedIndex != -1)
+                {
+                    byte[] data = Encoding.Default.GetBytes("choose,");
+                    stream.Write(data, 0, data.Length);
+
+                    ListPage.recivedGames[ListPage.choosedIndex].accounts.Add(currentAccount);
+
+                    data = MySerializer.serialize(ListPage.recivedGames[ListPage.choosedIndex]);
+                    stream.Write(data, 0, data.Length);
+
+                    data = new byte[1024];
+                    stream.Read(data, 0, data.Length);
+                    currentGame = (Game)MySerializer.deserialize(data);
+
+                    App.tttGamePage = new TTTgamePage();
+                    NavigationPage.SetHasNavigationBar(App.tttGamePage, false);
+
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        NavigationStatic.PushAsync(tttGamePage, false); // TODO : "switch" statement for other games
+                    });
+
+                    while (client.Connected)
+                    {
+                        data = new byte[1024];
+                        stream.Read(data, 0, 1024);
+                        currentGame = (Game)MySerializer.deserialize(data);
+
+                        if (!(currentGame is null))
+                        {
+                            MainThread.BeginInvokeOnMainThread(() =>
+                            {
+                                tttGamePage.recive(); // TODO: "switch" statement for other games
+                            });
+                        }
+                        else
+                            break;
+                    }
+
+                    stream.Close();
+                    client.Close();
+
+                    showErrorMessage("Lost connection with opponent");
+                }
             }
         }
 

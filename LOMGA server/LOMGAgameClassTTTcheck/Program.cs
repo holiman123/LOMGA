@@ -115,6 +115,7 @@ namespace LOMGAgameClassTTTcheck
 
                         gamesList.Add((Game)MySerializer.deserialize(listData));
                         Console.WriteLine("recived " + gamesList[gamesList.Count - 1].gameType + "-type game!");
+                        stream.Write(new byte[] { 0 }, 0, 1);
                     }
                     Console.WriteLine("recived games count: " + gamesList.Count);
                 }
@@ -135,7 +136,7 @@ namespace LOMGAgameClassTTTcheck
             }
 
             byte[] data = new byte[1024];
-            stream.Read(data, 0, 472);
+            stream.Read(data, 0, 1024);
             Game myGame = (Game)MySerializer.deserialize(data);
 
             Console.WriteLine("Game started!");

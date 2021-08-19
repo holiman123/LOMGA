@@ -22,6 +22,12 @@ namespace LOMGAxam.Droid
     [Obsolete]
     class MyEntryRenderer : EntryRenderer
     {
+
+        public MyEntryRenderer(Context context) : base(context)
+        {
+
+        }
+
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
@@ -32,11 +38,18 @@ namespace LOMGAxam.Droid
             gd.SetStroke(3, Android.Graphics.Color.Rgb(196, 196, 196));
 
 
-            IntPtr IntPtrtextViewClass = JNIEnv.FindClass(typeof(TextView));
-            IntPtr mCursorDrawableResProperty = JNIEnv.GetFieldID(IntPtrtextViewClass, "mCursorDrawableRes", "I");
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Q)
+            {
+                Control.SetTextCursorDrawable(0); //This API Intrduced in android 10
+            }
+            else
+            {
+                IntPtr IntPtrtextViewClass = JNIEnv.FindClass(typeof(TextView));
+                IntPtr mCursorDrawableResProperty = JNIEnv.GetFieldID(IntPtrtextViewClass, "mCursorDrawableRes", "I");
 
-            // my_cursor is the xml file name which we defined above
-            JNIEnv.SetField(Control.Handle, mCursorDrawableResProperty, Resource.Drawable.MyEntryXML);
+                // my_cursor is the xml file name which we defined above
+                JNIEnv.SetField(Control.Handle, mCursorDrawableResProperty, Resource.Drawable.MyEntryXML);
+            }
 
             this.Control.InputType = InputTypes.TextVariationVisiblePassword;
             this.Control.SetPadding(10, 0, 0, 0);

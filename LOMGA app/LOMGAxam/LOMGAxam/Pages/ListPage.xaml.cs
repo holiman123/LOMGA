@@ -28,6 +28,8 @@ namespace LOMGAxam.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListPage : ContentPage
     {
+        public static int choosedIndex = -1;
+
         static bool showTTT = true;
         static bool showSB = true;
         static bool showWithPassword = true;
@@ -88,12 +90,28 @@ namespace LOMGAxam.Pages
 
         private void list_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            choosedIndex = e.ItemIndex;
+            StartButton.IsEnabled = true;
             StartButton.FadeTo(1, App.fadingTimeConst);
         }
 
         private void GameTypeFilterButton_Pressed(object sender, EventArgs e)
         {
             // Go to filter page
+        }
+
+        private void StartButton_Pressed(object sender, EventArgs e)
+        {
+            if (App.currentAccount.nickname != null)
+            {
+                if (choosedIndex != -1)
+                    App.connectionThread = new System.Threading.Thread(unused => App.connectionThreadMethod("choose"));
+
+                allPage.FadeTo(0, App.fadingTimeConst);
+                Navigation.PushAsync(App.waitingPage, false);
+
+                App.connectionThread.Start();
+            }
         }
     }
 }

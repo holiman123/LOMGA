@@ -163,9 +163,6 @@ namespace LOMGAxam.Pages
 
             localField = new int[rowCount,columnCount];
 
-            //int rowCount = 3;
-            //int columnCount = 3;
-
             for (int i = 0; i < rowCount; i++)
             {
                 Field.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -205,6 +202,12 @@ namespace LOMGAxam.Pages
 
                     Field.Children.Add(tempLayout, i, j);
                 }
+
+            if (!((GameClassTTT)App.currentGame).areYouTurningFirst)
+            {
+                Field.IsEnabled = false;
+                TurnButton.IsEnabled = false;
+            }
         }
     }
 }
