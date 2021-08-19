@@ -44,7 +44,7 @@ namespace LOMGAserver
 
                 while (true)
                 {
-                    byte[] data = new byte[512];
+                    byte[] data = new byte[1024];
                     stream.Read(data, 0, data.Length);
 
                     if (Encoding.Default.GetString(data).Split(',')[0] == "start")
@@ -53,15 +53,18 @@ namespace LOMGAserver
 
                         // choose game by second part of string message from host-client
                         OnlineGame onlineGame = null;
-                        int recivedGameType = Convert.ToInt32(Encoding.Default.GetString(data).Split(',')[1]);
-                        switch (recivedGameType)
+                        //int recivedGameType = Convert.ToInt32(Encoding.Default.GetString(data).Split(',')[1]);
+
+                        stream.Read(data, 0, data.Length);
+                        Game newGame = (Game)MySerializer.deserialize(data);
+
+                        switch (newGame.gameType)
                         {
-                            case 0:   // TTT game
-                                GameClassTTT tempTTTGameClass = new GameClassTTT();
+                            case 1:   // TTT game
                                 onlineGame = new OnlineGame();
                                 onlineGame.hostClient = client;
                                 onlineGame.hostStream = stream;
-                                onlineGame.gameExemplar = tempTTTGameClass;
+                                onlineGame.gameExemplar = newGame;
                                 break;
                         }
 
@@ -85,7 +88,6 @@ namespace LOMGAserver
                         {
                             if (i != gamesList.Count)
                             {
-                                Console.WriteLine("debug");
                                 listBuffer = MySerializer.serialize(gamesList[i].gameExemplar);
                             }
                             else

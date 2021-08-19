@@ -17,7 +17,7 @@ namespace LOMGAserver
                     return ms.ToArray();
                 }
             }
-            catch (Exception) { return null; }
+            catch (Exception e) { Console.WriteLine("Serializer: " + e.Message); return null; }
         }
         public static object deserialize(byte[] obj)
         {
@@ -29,7 +29,7 @@ namespace LOMGAserver
                     return formatter.Deserialize(ms);
                 }
             }
-            catch (Exception) { return null; }
+            catch (Exception e) { Console.WriteLine("Serializer: " + e.Message); return null; }
         }
     }
 }

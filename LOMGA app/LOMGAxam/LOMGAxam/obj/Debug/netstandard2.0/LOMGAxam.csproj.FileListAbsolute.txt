@@ -36,7 +36,6 @@ C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\bin\Debug\netstand
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\bin\Debug\netstandard2.0\ref\LOMGAxam.dll
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\bin\Debug\netstandard2.0\LOMGAxam.pdb
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\XamlC.stamp
-C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\LOMGAxam.csprojAssemblyReference.cache
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\newTTTgameSettingsPage.xaml.g.cs
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\WaitingPage.xaml.g.cs
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\bin\Debug\netstandard2.0\LOMGAgameClass.dll
@@ -45,3 +44,4 @@ C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstand
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\LOMGAxam.csproj.CopyComplete
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\MessagePage.xaml.g.cs
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\Pages\ListPage.xaml.g.cs
+C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam\obj\Debug\netstandard2.0\LOMGAxam.csprojAssemblyReference.cache

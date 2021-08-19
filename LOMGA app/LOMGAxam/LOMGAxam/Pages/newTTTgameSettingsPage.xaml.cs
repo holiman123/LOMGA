@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using LOMGAgameClass;
 
 namespace LOMGAxam.Pages
 {
@@ -26,13 +27,15 @@ namespace LOMGAxam.Pages
         }
         async private void Start_Button_Pressed(object sender, EventArgs e)
         {
-            if (App.nickname != null)
+            if (App.currentAccount.nickname != null)
             {
-                App.connectionThread = new System.Threading.Thread(unused => App.connectionThreadMethod("start,0"));
+                App.connectionThread = new System.Threading.Thread(unused => App.connectionThreadMethod("start,1"));
 
                 await allPage.FadeTo(0, App.fadingTimeConst);
                 await Navigation.PushAsync(App.waitingPage, false);
 
+                App.currentGame = new GameClassTTT();   // TODO: Field size set!
+                App.currentGame.accounts.Add(App.currentAccount);
                 App.connectionThread.Start();
             }
             else

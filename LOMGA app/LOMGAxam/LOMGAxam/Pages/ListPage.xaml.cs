@@ -42,8 +42,6 @@ namespace LOMGAxam.Pages
 
             stringsFromGames = new ObservableCollection<StringFromGame>();
 
-            list_Refreshing(new object(), new EventArgs());
-
             this.BindingContext = this;
         }
 
@@ -61,16 +59,18 @@ namespace LOMGAxam.Pages
 
         async protected override void OnAppearing()
         {
+            list_Refreshing(new object(), new EventArgs());
             await allPage.FadeTo(1, App.fadingTimeConst);
             base.OnAppearing();
         }
 
         private void list_Refreshing(object sender, EventArgs e)
         {
-            Game testGame = new Game();
-            testGame.accounts.Add(new Account("jopajopajopajopa"));
-            recivedGames.Add(testGame);   // Getting list from server
-            recivedGames.Add(testGame);   // Getting list from server
+            recivedGames.Clear();
+            App.connectionThread = new System.Threading.Thread(unused => App.connectionThreadMethod("list,"));
+            App.connectionThread.Start();
+
+            App.connectionThread.Join();
 
             stringsFromGames.Clear();
 
@@ -78,7 +78,7 @@ namespace LOMGAxam.Pages
             {
                 switch (game.gameType)
                 {
-                    case 0:
+                    case 1:
                     stringsFromGames.Add(new StringFromGame("TTT", game.accounts[0].nickname));
                         break;
                 }

@@ -38,7 +38,7 @@ namespace LOMGAxam
 
         private void MyEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            App.nickname = ((MyEntry)sender).Text;
+            App.currentAccount.nickname = ((MyEntry)sender).Text;
 
             if (((MyEntry)sender).Text != "")
             {

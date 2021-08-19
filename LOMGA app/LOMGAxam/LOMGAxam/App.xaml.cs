@@ -13,7 +13,6 @@ namespace LOMGAxam
 {
     public partial class App : Application
     {
-        public static string nickname;
         public const int fadingTimeConst = 200;
         public static Thread connectionThread;
         public static INavigation NavigationStatic;
@@ -21,6 +20,7 @@ namespace LOMGAxam
         public static TcpClient client = new TcpClient();
         public static NetworkStream stream;
         public static Game currentGame;
+        public static Account currentAccount;
 
         public static ChooseConnectScreen chooseConnectScreen = new ChooseConnectScreen();
         public static CreateGamePage createGamePage = new CreateGamePage();
@@ -38,6 +38,7 @@ namespace LOMGAxam
 
             MainPage = new NavigationPage(startPage);
             NavigationStatic = MainPage.Navigation;
+            currentAccount = new Account();
         }
 
         protected override void OnStart()
@@ -76,6 +77,9 @@ namespace LOMGAxam
                     stream = client.GetStream();
 
                     byte[] data = Encoding.Default.GetBytes(modeStr);
+                    stream.Write(data, 0, data.Length);
+
+                    data = MySerializer.serialize(currentGame);
                     stream.Write(data, 0, data.Length);
 
                     data = new byte[1024];
@@ -119,6 +123,35 @@ namespace LOMGAxam
                     client.Close();
                     showErrorMessage("Problem with connection"); 
                 }
+            }
+
+            if (modeStr.Split(',')[0] == "list")
+            {
+                try
+                {
+                    if (client == null || !client.Connected)
+                    {
+                        client = new TcpClient();
+                        client.Connect(IPAddress.Parse("192.168.0.102"), 2003);
+                        stream = client.GetStream();
+                    }
+                    else { }
+
+                    byte[] data = Encoding.Default.GetBytes(modeStr);
+                    stream.Write(data, 0, data.Length);
+
+                    while (true)
+                    {
+                        data = new byte[1024];
+                        stream.Read(data, 0, 1024);
+
+                        if (Encoding.Default.GetString(data).Remove(4) == "end.")
+                            break;
+
+                        ListPage.recivedGames.Add((Game)MySerializer.deserialize(data));
+                    }
+                }
+                catch (Exception) { }
             }
         }
 

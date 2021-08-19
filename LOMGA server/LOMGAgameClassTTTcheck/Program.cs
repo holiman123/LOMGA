@@ -91,6 +91,11 @@ namespace LOMGAgameClassTTTcheck
                     byte[] startData = Encoding.Default.GetBytes(message);
                     stream.Write(startData, 0, startData.Length);
 
+                    GameClassTTT tempTTT = new GameClassTTT();
+                    tempTTT.accounts.Add(new Account("check nickname"));
+                    startData = MySerializer.serialize(tempTTT);
+                    stream.Write(startData, 0, startData.Length);
+
                     break;
                 }
 
@@ -102,8 +107,8 @@ namespace LOMGAgameClassTTTcheck
 
                     while (true)
                     {
-                        listData = new byte[512];
-                        stream.Read(listData, 0, 471);
+                        listData = new byte[1024];
+                        stream.Read(listData, 0, 1024);
 
                         if (Encoding.Default.GetString(listData).Remove(4) == "end.")
                             break;
