@@ -7,10 +7,12 @@ namespace LOMGAgameClass
     [Serializable]
     public class Account
     {
+        public int index;
         public string nickname;
 
-        public Account(string nickname)
+        public Account(string nickname, int index)
         {
+            this.index = index;
             this.nickname = nickname;
         }
         public Account()

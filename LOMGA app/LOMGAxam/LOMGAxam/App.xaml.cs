@@ -72,28 +72,37 @@ namespace LOMGAxam
             {
                 try
                 {
+                    // set host account
+                    currentAccount.index = 0;
+                    currentGame.accounts.Add(currentAccount);
+
+                    // Connect
                     client = new TcpClient();
                     client.Connect(IPAddress.Parse("192.168.0.102"), 2003);
                     stream = client.GetStream();
 
+                    // send command to start new game
                     byte[] data = Encoding.Default.GetBytes(modeStr);
                     stream.Write(data, 0, data.Length);
-
+                    
+                    // send new game to server
                     data = MySerializer.serialize(currentGame);
                     stream.Write(data, 0, data.Length);
 
+                    // recive started game from server
                     data = new byte[1024];
                     stream.Read(data, 0, 1024);
                     currentGame = (Game)MySerializer.deserialize(data);
 
+                    // show game page
                     App.tttGamePage = new TTTgamePage();
                     NavigationPage.SetHasNavigationBar(App.tttGamePage, false);
-
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
                         NavigationStatic.PushAsync(tttGamePage, false); // TODO : "switch" statement for other games
                     });
 
+                    // start cycle to recive turns from opponent through server
                     while (client.Connected)
                     {
                         data = new byte[1024];
@@ -159,26 +168,32 @@ namespace LOMGAxam
             {
                 if (ListPage.choosedIndex != -1)
                 {
+                    // send choose command to server
                     byte[] data = Encoding.Default.GetBytes("choose,");
                     stream.Write(data, 0, data.Length);
 
+                    // add new account to game
+                    currentAccount.index = ListPage.recivedGames[ListPage.choosedIndex].accounts.Count;
                     ListPage.recivedGames[ListPage.choosedIndex].accounts.Add(currentAccount);
 
+                    // send to server choose game
                     data = MySerializer.serialize(ListPage.recivedGames[ListPage.choosedIndex]);
                     stream.Write(data, 0, data.Length);
 
+                    // recive new game from server
                     data = new byte[1024];
                     stream.Read(data, 0, data.Length);
                     currentGame = (Game)MySerializer.deserialize(data);
 
+                    // Show game page
                     App.tttGamePage = new TTTgamePage();
                     NavigationPage.SetHasNavigationBar(App.tttGamePage, false);
-
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
                         NavigationStatic.PushAsync(tttGamePage, false); // TODO : "switch" statement for other games
                     });
 
+                    // cycle to recive turns from opponent through server
                     while (client.Connected)
                     {
                         data = new byte[1024];

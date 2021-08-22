@@ -92,7 +92,7 @@ namespace LOMGAgameClassTTTcheck
                     stream.Write(startData, 0, startData.Length);
 
                     GameClassTTT tempTTT = new GameClassTTT();
-                    tempTTT.accounts.Add(new Account("check nickname"));
+                    tempTTT.accounts.Add(new Account("check nickname", tempTTT.accounts.Count));
                     startData = MySerializer.serialize(tempTTT);
                     stream.Write(startData, 0, startData.Length);
 
@@ -128,6 +128,7 @@ namespace LOMGAgameClassTTTcheck
                     Console.WriteLine("Write number of game you want to connect:");
                     int choosedGameIndex = Convert.ToInt32(Console.ReadLine());
 
+                    gamesList[choosedGameIndex].accounts.Add(new Account("nick 1", gamesList[choosedGameIndex].accounts.Count));
                     chooseData = MySerializer.serialize(gamesList[choosedGameIndex]);
                     stream.Write(chooseData, 0, chooseData.Length);
 

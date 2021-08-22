@@ -27,7 +27,7 @@ namespace LOMGAxam.Pages
         }
         async private void Start_Button_Pressed(object sender, EventArgs e)
         {
-            if (App.currentAccount.nickname != null)
+            if (App.currentAccount != null)
             {
                 App.connectionThread = new System.Threading.Thread(unused => App.connectionThreadMethod("start,1"));
 
@@ -35,11 +35,10 @@ namespace LOMGAxam.Pages
                 await Navigation.PushAsync(App.waitingPage, false);
 
                 App.currentGame = new GameClassTTT();   // TODO: Field size set!
-                App.currentGame.accounts.Add(App.currentAccount);
                 App.connectionThread.Start();
             }
             else
-                App.showErrorMessage("Nickname hasn't set!");
+                App.showErrorMessage("Account issues.");
         }
 
         async private void CheckBox_TTT(object sender, EventArgs e)
