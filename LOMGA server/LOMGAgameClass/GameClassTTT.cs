@@ -22,8 +22,7 @@ namespace LOMGAgameClass
             columnSize = 3;
             rowSize = 3;
             field = new int[columnSize, rowSize];
-            Random r = new Random();
-            turnFlag = Convert.ToBoolean(r.Next(0,2));
+            turnFlag = true;
 
             for (int i = 0; i < rowSize; i++)
                 for (int j = 0; j < columnSize; j++)
@@ -37,8 +36,7 @@ namespace LOMGAgameClass
             columnSize = columnCount;
             rowSize = rowCount;
             field = new int[rowSize, columnSize];
-            Random r = new Random();
-            turnFlag = Convert.ToBoolean(r.Next(0, 2));
+            turnFlag = true;
 
             for (int i = 0; i < rowSize; i++)
                 for (int j = 0; j < columnSize; j++)

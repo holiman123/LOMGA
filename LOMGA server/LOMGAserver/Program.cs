@@ -124,12 +124,28 @@ namespace LOMGAserver
 
                         // send to both
                         byte[] buffer = MySerializer.serialize(gamesList[choosedGameIndex].gameExemplar);
-                        gamesList[choosedGameIndex].clientStream.Write(buffer, 0, buffer.Length);
-                        //======================================
-                        ((GameClassTTT)gamesList[choosedGameIndex].gameExemplar).areYouTurningFirst = true; // TODO: make random chooser of first turn
-                        buffer = MySerializer.serialize(gamesList[choosedGameIndex].gameExemplar);
-                        //======================================
-                        gamesList[choosedGameIndex].hostStream.Write(buffer, 0, buffer.Length);
+
+                        Random r = new Random();
+                        if (Convert.ToBoolean(r.Next(0, 2)))
+                        {                               
+                            // Host turning first
+                            gamesList[choosedGameIndex].clientStream.Write(buffer, 0, buffer.Length);
+                            
+                            ((GameClassTTT)gamesList[choosedGameIndex].gameExemplar).areYouTurningFirst = true;
+                            buffer = MySerializer.serialize(gamesList[choosedGameIndex].gameExemplar);
+                            
+                            gamesList[choosedGameIndex].hostStream.Write(buffer, 0, buffer.Length);
+                        }
+                        else
+                        {
+                            // client turning first
+                            gamesList[choosedGameIndex].hostStream.Write(buffer, 0, buffer.Length);
+
+                            ((GameClassTTT)gamesList[choosedGameIndex].gameExemplar).areYouTurningFirst = true;
+                            buffer = MySerializer.serialize(gamesList[choosedGameIndex].gameExemplar);
+
+                            gamesList[choosedGameIndex].clientStream.Write(buffer, 0, buffer.Length);
+                        }
 
                         //start endless cycle to send/read new changed game
                         Thread hostTransmitThread = new Thread(unused => transmitMethod(gamesList[choosedGameIndex].hostStream, gamesList[choosedGameIndex].clientStream, gamesList[choosedGameIndex].hostClient));

@@ -55,6 +55,8 @@ namespace LOMGAxam.Pages
 
         public void recive()
         {
+            try
+            {
                 label.Text = "Your turn";
                 Field.IsEnabled = true;
 
@@ -63,6 +65,8 @@ namespace LOMGAxam.Pages
                         localField[i, j] = ((GameClassTTT)App.currentGame).field[j, i];
 
                 drawLocalField();
+            }
+            catch (NullReferenceException e) { }
         }
 
         protected override void OnAppearing()
@@ -207,6 +211,7 @@ namespace LOMGAxam.Pages
             {
                 Field.IsEnabled = false;
                 TurnButton.IsEnabled = false;
+                label.Text = "Opponents turn";
             }
         }
     }

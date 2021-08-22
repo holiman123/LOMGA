@@ -691,7 +691,6 @@ C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.Numerics.Vectors.pdb
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.pdb
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.Runtime.dll
-C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.Runtime.Extensions.dll
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.Runtime.Serialization.dll
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.Runtime.Serialization.pdb
 C:\Users\luchi\source\repos\LOMGA\LOMGA app\LOMGAxam\LOMGAxam.Android\obj\Debug\110\android\assets\System.ServiceModel.Internals.dll
