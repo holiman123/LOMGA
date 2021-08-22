@@ -28,6 +28,7 @@ namespace LOMGAxam
         public static newTTTgameSettingsPage newTTTgameSettingsPage = new newTTTgameSettingsPage();
         public static WaitingPage waitingPage = new WaitingPage();
         public static TTTgamePage tttGamePage;
+        public static WinPage winPage;
         public static ListPage listPage = new ListPage();
         public App()
         {
@@ -63,11 +64,13 @@ namespace LOMGAxam
 
         /// <summary>
         /// Thread to operate connection to server
-        /// (start - start new game / list get list of games and connect ot them)
+        /// (start, - start new game / list, - get list of games / choose, - connect to game)
         /// </summary>
         /// <param name="modeStr">String that shows mode to start thread</param>
         public static void connectionThreadMethod(string modeStr)
         {
+            byte[] data;
+
             if (modeStr.Split(',')[0] == "start")
             {
                 try
@@ -82,7 +85,7 @@ namespace LOMGAxam
                     stream = client.GetStream();
 
                     // send command to start new game
-                    byte[] data = Encoding.Default.GetBytes(modeStr);
+                    data = Encoding.Default.GetBytes(modeStr);
                     stream.Write(data, 0, data.Length);
                     
                     // send new game to server
@@ -101,30 +104,6 @@ namespace LOMGAxam
                     {
                         NavigationStatic.PushAsync(tttGamePage, false); // TODO : "switch" statement for other games
                     });
-
-                    // start cycle to recive turns from opponent through server
-                    while (client.Connected)
-                    {
-                        data = new byte[1024];
-                        stream.Read(data, 0, 1024);
-                        currentGame = (Game)MySerializer.deserialize(data);
-
-                        if (!(currentGame is null))
-                        {
-                            MainThread.BeginInvokeOnMainThread(() =>
-                            {
-                                tttGamePage.recive(); // TODO: "switch" statement for other games
-                            });
-                        }
-                        else
-                            break;
-                    }
-
-                    stream.Close();
-                    client.Close();
-
-                    showErrorMessage("Lost connection with opponent");
-
                 }
                 catch (Exception e)
                 {
@@ -146,7 +125,7 @@ namespace LOMGAxam
                     }
                     else { }
 
-                    byte[] data = Encoding.Default.GetBytes(modeStr);
+                    data = Encoding.Default.GetBytes(modeStr);
                     stream.Write(data, 0, data.Length);
 
                     while (true)
@@ -162,6 +141,7 @@ namespace LOMGAxam
                     }
                 }
                 catch (Exception) { }
+                return;
             }
 
             if (modeStr.Split(',')[0] == "choose")
@@ -169,7 +149,7 @@ namespace LOMGAxam
                 if (ListPage.choosedIndex != -1)
                 {
                     // send choose command to server
-                    byte[] data = Encoding.Default.GetBytes("choose,");
+                    data = Encoding.Default.GetBytes("choose,");
                     stream.Write(data, 0, data.Length);
 
                     // add new account to game
@@ -192,31 +172,33 @@ namespace LOMGAxam
                     {
                         NavigationStatic.PushAsync(tttGamePage, false); // TODO : "switch" statement for other games
                     });
-
-                    // cycle to recive turns from opponent through server
-                    while (client.Connected)
-                    {
-                        data = new byte[1024];
-                        stream.Read(data, 0, 1024);
-                        currentGame = (Game)MySerializer.deserialize(data);
-
-                        if (!(currentGame is null))
-                        {
-                            MainThread.BeginInvokeOnMainThread(() =>
-                            {
-                                tttGamePage.recive(); // TODO: "switch" statement for other games
-                            });
-                        }
-                        else
-                            break;
-                    }
-
-                    stream.Close();
-                    client.Close();
-
-                    showErrorMessage("Lost connection with opponent");
                 }
             }
+
+            // Start cycle to recive turns from opponent through server
+            while (client.Connected)
+            {
+                data = new byte[1024];
+                stream.Read(data, 0, 1024);
+                currentGame = (Game)MySerializer.deserialize(data);
+
+                if (!(currentGame is null))
+                {
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        tttGamePage.recive(); // TODO: "switch" statement for other games
+                    });
+                }
+                else
+                    break;
+            }
+
+            stream.Close();
+            client.Close();
+            currentGame = null;
+            currentAccount.index = -1;
+
+            showErrorMessage("Lost connection with opponent");
         }
 
         public static void showErrorMessage(string errorString)

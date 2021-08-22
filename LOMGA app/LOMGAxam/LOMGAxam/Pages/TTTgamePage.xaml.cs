@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using LOMGAgameClass;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Diagnostics;
 
 namespace LOMGAxam.Pages
 {
@@ -45,11 +46,29 @@ namespace LOMGAxam.Pages
                 label.Text = "Opponents turn";
                 ((GameClassTTT)App.currentGame).turn(turnX, turnY);
 
+                if (((GameClassTTT)App.currentGame).isWin)
+                {
+                    ((GameClassTTT)App.currentGame).winIndex = App.currentAccount.index;
+                    Debug.WriteLine("Win : " + App.currentGame.accounts[((GameClassTTT)App.currentGame).winIndex].nickname);
+
+                    // Show win page
+                    //App.winPage = new WinPage(App.currentGame.accounts[((GameClassTTT)App.currentGame).winIndex]);
+                    //NavigationPage.SetHasNavigationBar(App.winPage, false);
+                    //allPage.FadeTo(0, App.fadingTimeConst);
+                    //Navigation.PushAsync(App.winPage, false);
+                }
+
                 byte[] data = MySerializer.serialize(App.currentGame);
                 App.stream.Write(data, 0, data.Length);
 
                 turnX = -1;
                 turnY = -1;
+
+                if (((GameClassTTT)App.currentGame).isWin)
+                {
+                    //App.stream.Close();
+                    //App.client.Close();
+                }
             }
         }
 
@@ -57,14 +76,31 @@ namespace LOMGAxam.Pages
         {
             try
             {
-                label.Text = "Your turn";
-                Field.IsEnabled = true;
+                if (((GameClassTTT)App.currentGame).isWin)
+                {
+                    Debug.WriteLine("Win : " + App.currentGame.accounts[((GameClassTTT)App.currentGame).winIndex].nickname);
 
-                for (int i = 0; i < ((GameClassTTT)App.currentGame).rowSize; i++)
-                    for (int j = 0; j < ((GameClassTTT)App.currentGame).columnSize; j++)
-                        localField[i, j] = ((GameClassTTT)App.currentGame).field[j, i];
+                    // Show win page
+                    //App.winPage = new WinPage(App.currentGame.accounts[((GameClassTTT)App.currentGame).winIndex]);
+                    //NavigationPage.SetHasNavigationBar(App.winPage, false);
+                    //allPage.FadeTo(0, App.fadingTimeConst);
+                    //Navigation.PushAsync(App.winPage, false);
 
-                drawLocalField();
+                    // closing connection to server
+                    //App.stream.Close();
+                    //App.client.Close();
+                }
+                else
+                {
+                    label.Text = "Your turn";
+                    Field.IsEnabled = true;
+
+                    for (int i = 0; i < ((GameClassTTT)App.currentGame).rowSize; i++)
+                        for (int j = 0; j < ((GameClassTTT)App.currentGame).columnSize; j++)
+                            localField[i, j] = ((GameClassTTT)App.currentGame).field[j, i];
+
+                    drawLocalField();
+                }
             }
             catch (NullReferenceException e) { }
         }

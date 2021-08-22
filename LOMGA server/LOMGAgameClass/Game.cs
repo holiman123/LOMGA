@@ -12,7 +12,6 @@ namespace LOMGAgameClass
         public bool isGameready;
         public bool isStarted;
 
-
         public static bool operator ==(Game a, Game b) =>
             a.gameIndex == b.gameIndex;
 

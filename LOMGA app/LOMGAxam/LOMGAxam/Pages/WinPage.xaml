@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LOMGAxam.Pages.WinPage">
+    <ContentPage.Content>
+        <AbsoluteLayout x:Name="allPage" BackgroundColor="WhiteSmoke" Opacity="0">
+            <Label 
+                x:Name="label"
+                Text=""
+                AbsoluteLayout.LayoutBounds="0.5, 0.4, 0.8, 0.1"
+                AbsoluteLayout.LayoutFlags="All"
+                TextColor="#666"
+                HorizontalTextAlignment="Center"
+                FontSize="38"
+                />
+            <Button
+                Text="Back to menu"
+                FontSize="20"
+                AbsoluteLayout.LayoutBounds="0.5, 0.6, 0.8, 0.12"
+                AbsoluteLayout.LayoutFlags="All"
+                TextColor="WhiteSmoke"
+                BackgroundColor="#36954B"
+                CornerRadius="12"
+                Pressed="Button_Pressed"
+                />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

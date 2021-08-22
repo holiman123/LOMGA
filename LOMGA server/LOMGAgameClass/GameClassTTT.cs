@@ -13,6 +13,7 @@ namespace LOMGAgameClass
         public int forWinCount { get; set; }
 
         public bool areYouTurningFirst = false;
+        public int winIndex = -1;
 
         public GameClassTTT()
         {
